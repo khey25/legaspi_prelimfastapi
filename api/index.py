@@ -24,12 +24,12 @@ gta_database = {
     "heists": {
         "Billionaire Amongst Millionaires": [
             {"name": "The Cayo Perico Heist", "required_property": "Kosatka Submarine"},
+            {"name": "The Contract: Dr. Dre", "required_property": "Agency"},
             {"name": "The Diamond Casino Heist", "required_property": "Arcade"}
         ],
         "Typical Bank Heist": [
             {"name": "The Pacific Standard Job", "required_property": "High-End Apartment"},
             {"name": "The Doomsday Heist", "required_property": "Facility"},
-            {"name": "The Contract: Dr. Dre", "required_property": "Agency"},
             {"name": "The Cluckin' Bell Farm Raid", "required_property": "Vincent (Map Marker)"}
         ],
         "What is this? A Convenience Store?": [
