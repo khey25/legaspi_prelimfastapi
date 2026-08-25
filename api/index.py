@@ -13,18 +13,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- THE MASSIVE 14-ATTRIBUTE DATABASE ---
+# --- THE MASSIVE 16-ATTRIBUTE DATABASE ---
 gta_database = {
     "businesses": {
         "Suspiciously Profitable": [
             {
                 "name": "Acid Lab", 
                 "property": "Brickade 6x6 (Freakshop)",
+                "associated_network": "Fooliganz",
                 "setup_cost": 750000,
                 "is_passive": True,
                 "solo_friendly": True,
                 "max_payout": 335200,
                 "restock_method": "Buy or Steal",
+                "can_be_raided": False,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -36,11 +38,13 @@ gta_database = {
             {
                 "name": "Nightclub Management", 
                 "property": "Nightclub",
+                "associated_network": "Nightclub Underground",
                 "setup_cost": 1080000,
                 "is_passive": True,
                 "solo_friendly": True,
                 "max_payout": 1900000,
                 "restock_method": "Fully Passive",
+                "can_be_raided": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -52,11 +56,13 @@ gta_database = {
             {
                 "name": "Gunrunning", 
                 "property": "Bunker",
+                "associated_network": "Disruption Logistics",
                 "setup_cost": 1165000,
                 "is_passive": True,
                 "solo_friendly": True,
                 "max_payout": 1050000,
                 "restock_method": "Buy or Steal",
+                "can_be_raided": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -70,11 +76,13 @@ gta_database = {
             {
                 "name": "Special & Vehicle Cargo", 
                 "property": "Executive Office",
+                "associated_network": "SecuroServ",
                 "setup_cost": 1000000,
                 "is_passive": False,
                 "solo_friendly": True,
                 "max_payout": 2200000,
                 "restock_method": "Steal Only",
+                "can_be_raided": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -86,11 +94,13 @@ gta_database = {
             {
                 "name": "Cocaine Lockup", 
                 "property": "MC Clubhouse",
+                "associated_network": "Motorcycle Club",
                 "setup_cost": 975000,
                 "is_passive": True,
                 "solo_friendly": False,
                 "max_payout": 525000,
                 "restock_method": "Buy or Steal",
+                "can_be_raided": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -102,11 +112,13 @@ gta_database = {
             {
                 "name": "Air Freight Cargo", 
                 "property": "Hangar",
+                "associated_network": "Free Trade Shipping Co",
                 "setup_cost": 1200000,
                 "is_passive": False,
                 "solo_friendly": False,
                 "max_payout": 2500000,
                 "restock_method": "Steal Only",
+                "can_be_raided": False,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -118,11 +130,13 @@ gta_database = {
             {
                 "name": "Bail Enforcement", 
                 "property": "Bail Office",
+                "associated_network": "Bail Enforcement",
                 "setup_cost": 1550000,
                 "is_passive": False,
                 "solo_friendly": True,
                 "max_payout": 130000,
                 "restock_method": "Bounty Hunting",
+                "can_be_raided": False,
                 "cooldown_minutes": 48,
                 "min_players": 1,
                 "max_players": 4,
@@ -136,11 +150,13 @@ gta_database = {
             {
                 "name": "Document Forgery Office", 
                 "property": "MC Clubhouse",
+                "associated_network": "Motorcycle Club",
                 "setup_cost": 650000,
                 "is_passive": True,
                 "solo_friendly": False,
                 "max_payout": 126000,
                 "restock_method": "Buy or Steal",
+                "can_be_raided": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -152,11 +168,13 @@ gta_database = {
             {
                 "name": "Weed Farm", 
                 "property": "MC Clubhouse",
+                "associated_network": "Motorcycle Club",
                 "setup_cost": 715000,
                 "is_passive": True,
                 "solo_friendly": False,
                 "max_payout": 315000,
                 "restock_method": "Buy or Steal",
+                "can_be_raided": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -168,11 +186,13 @@ gta_database = {
             {
                 "name": "Counterfeit Cash Factory", 
                 "property": "MC Clubhouse",
+                "associated_network": "Motorcycle Club",
                 "setup_cost": 845000,
                 "is_passive": True,
                 "solo_friendly": False,
                 "max_payout": 352000,
                 "restock_method": "Buy or Steal",
+                "can_be_raided": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -188,6 +208,7 @@ gta_database = {
             {
                 "name": "The Cayo Perico Heist", 
                 "required_property": "Kosatka Submarine",
+                "primary_location": "Cayo Perico Island",
                 "setup_cost": 100000,
                 "solo_friendly": True,
                 "max_payout": 4100000,
@@ -196,6 +217,7 @@ gta_database = {
                 "min_players": 1,
                 "max_players": 4,
                 "stealth_option": True,
+                "hard_mode_available": True,
                 "elite_challenge": True,
                 "release_update": "The Cayo Perico Heist",
                 "release_year": 2020,
@@ -204,6 +226,7 @@ gta_database = {
             {
                 "name": "The Contract: Dr. Dre", 
                 "required_property": "Agency",
+                "primary_location": "Los Santos",
                 "setup_cost": 0,
                 "solo_friendly": True,
                 "max_payout": 1000000,
@@ -212,6 +235,7 @@ gta_database = {
                 "min_players": 1,
                 "max_players": 4,
                 "stealth_option": False,
+                "hard_mode_available": False,
                 "elite_challenge": False,
                 "release_update": "The Contract",
                 "release_year": 2021,
@@ -220,6 +244,7 @@ gta_database = {
             {
                 "name": "The Diamond Casino Heist", 
                 "required_property": "Arcade",
+                "primary_location": "Diamond Casino & Resort",
                 "setup_cost": 25000,
                 "solo_friendly": False,
                 "max_payout": 3619000,
@@ -228,6 +253,7 @@ gta_database = {
                 "min_players": 2,
                 "max_players": 4,
                 "stealth_option": True,
+                "hard_mode_available": True,
                 "elite_challenge": True,
                 "release_update": "The Diamond Casino Heist",
                 "release_year": 2019,
@@ -238,6 +264,7 @@ gta_database = {
             {
                 "name": "The Pacific Standard Job", 
                 "required_property": "High-End Apartment",
+                "primary_location": "Downtown Vinewood",
                 "setup_cost": 100000,
                 "solo_friendly": False,
                 "max_payout": 1250000,
@@ -246,6 +273,7 @@ gta_database = {
                 "min_players": 4,
                 "max_players": 4,
                 "stealth_option": False,
+                "hard_mode_available": True,
                 "elite_challenge": True,
                 "release_update": "Heists Update",
                 "release_year": 2015,
@@ -254,6 +282,7 @@ gta_database = {
             {
                 "name": "The Doomsday Heist", 
                 "required_property": "Facility",
+                "primary_location": "San Andreas",
                 "setup_cost": 120000,
                 "solo_friendly": False,
                 "max_payout": 1500000,
@@ -262,6 +291,7 @@ gta_database = {
                 "min_players": 2,
                 "max_players": 4,
                 "stealth_option": True,
+                "hard_mode_available": True,
                 "elite_challenge": True,
                 "release_update": "The Doomsday Heist",
                 "release_year": 2017,
@@ -270,6 +300,7 @@ gta_database = {
             {
                 "name": "The Cluckin' Bell Farm Raid", 
                 "required_property": "Vincent (Map Marker)",
+                "primary_location": "Paleto Bay",
                 "setup_cost": 0,
                 "solo_friendly": True,
                 "max_payout": 500000,
@@ -278,6 +309,7 @@ gta_database = {
                 "min_players": 1,
                 "max_players": 4,
                 "stealth_option": True,
+                "hard_mode_available": False,
                 "elite_challenge": False,
                 "release_update": "The Cluckin' Bell Farm Raid",
                 "release_year": 2024,
@@ -288,6 +320,7 @@ gta_database = {
             {
                 "name": "The Fleeca Job", 
                 "required_property": "High-End Apartment",
+                "primary_location": "Great Ocean Highway",
                 "setup_cost": 11500,
                 "solo_friendly": False,
                 "max_payout": 143750,
@@ -296,6 +329,7 @@ gta_database = {
                 "min_players": 2,
                 "max_players": 2,
                 "stealth_option": False,
+                "hard_mode_available": True,
                 "elite_challenge": True,
                 "release_update": "Heists Update",
                 "release_year": 2015,
@@ -304,6 +338,7 @@ gta_database = {
             {
                 "name": "Auto Shop Contracts", 
                 "required_property": "Auto Shop",
+                "primary_location": "Los Santos",
                 "setup_cost": 0,
                 "solo_friendly": True,
                 "max_payout": 300000,
@@ -312,6 +347,7 @@ gta_database = {
                 "min_players": 1,
                 "max_players": 4,
                 "stealth_option": False,
+                "hard_mode_available": False,
                 "elite_challenge": False,
                 "release_update": "Los Santos Tuners",
                 "release_year": 2021,
@@ -320,6 +356,7 @@ gta_database = {
             {
                 "name": "Salvage Yard Robberies", 
                 "required_property": "Salvage Yard",
+                "primary_location": "Los Santos",
                 "setup_cost": 20000,
                 "solo_friendly": True,
                 "max_payout": 300000,
@@ -328,6 +365,7 @@ gta_database = {
                 "min_players": 1,
                 "max_players": 4,
                 "stealth_option": True,
+                "hard_mode_available": False,
                 "elite_challenge": False,
                 "release_update": "The Chop Shop",
                 "release_year": 2023,
@@ -340,10 +378,12 @@ gta_database = {
             {
                 "name": "First Dose & Last Dose", 
                 "contact": "Dax",
+                "mission_type": "Story Campaign",
                 "unlock_requirement": "None",
                 "solo_friendly": True,
                 "base_payout": 100000,
                 "time_to_complete_mins": 15,
+                "difficulty_selectable": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -356,10 +396,12 @@ gta_database = {
             {
                 "name": "Payphone Hits", 
                 "contact": "Franklin Clinton",
+                "mission_type": "Free Roam Assassination",
                 "unlock_requirement": "Own an Agency",
                 "solo_friendly": True,
                 "base_payout": 85000,
                 "time_to_complete_mins": 5,
+                "difficulty_selectable": False,
                 "cooldown_minutes": 10,
                 "min_players": 1,
                 "max_players": 2,
@@ -374,10 +416,12 @@ gta_database = {
             {
                 "name": "Dispatch Services", 
                 "contact": "Martin Madrazo",
+                "mission_type": "Instanced Co-op",
                 "unlock_requirement": "None",
                 "solo_friendly": False,
                 "base_payout": 20000,
                 "time_to_complete_mins": 5,
+                "difficulty_selectable": True,
                 "cooldown_minutes": 0,
                 "min_players": 2,
                 "max_players": 4,
@@ -390,10 +434,12 @@ gta_database = {
             {
                 "name": "Premium Deluxe Repo Work", 
                 "contact": "Simeon Yetarian",
+                "mission_type": "Instanced Co-op",
                 "unlock_requirement": "None",
                 "solo_friendly": True,
                 "base_payout": 20000,
                 "time_to_complete_mins": 8,
+                "difficulty_selectable": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -406,10 +452,12 @@ gta_database = {
             {
                 "name": "Last Play Missions", 
                 "contact": "Gerald",
+                "mission_type": "Instanced Co-op",
                 "unlock_requirement": "None",
                 "solo_friendly": True,
                 "base_payout": 25000,
                 "time_to_complete_mins": 10,
+                "difficulty_selectable": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -424,10 +472,12 @@ gta_database = {
             {
                 "name": "Operation Paper Trail", 
                 "contact": "Agent ULP",
+                "mission_type": "Story Campaign",
                 "unlock_requirement": "None",
                 "solo_friendly": True,
                 "base_payout": 40000,
                 "time_to_complete_mins": 15,
+                "difficulty_selectable": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -440,10 +490,12 @@ gta_database = {
             {
                 "name": "Classic Grinds", 
                 "contact": "Lester Crest",
+                "mission_type": "Instanced Co-op",
                 "unlock_requirement": "Level 75",
                 "solo_friendly": False,
                 "base_payout": 18000,
                 "time_to_complete_mins": 10,
+                "difficulty_selectable": True,
                 "cooldown_minutes": 0,
                 "min_players": 1,
                 "max_players": 4,
@@ -457,16 +509,12 @@ gta_database = {
     }
 }
 
-
 # --- HOME ENDPOINT ---
-
 @app.get("/")
 def home():
     return {"message": "Welcome to the GTA Online Activity API!"}
 
-
 # --- BUSINESS ROUTES ---
-
 @app.get("/businesses")
 def get_all_businesses():
     return gta_database["businesses"]
@@ -486,9 +534,7 @@ def get_businesses_by_ranking(ranking: str):
     if not result: raise HTTPException(status_code=404, detail="Ranking tier not found.")
     return result
 
-
 # --- HEIST ROUTES ---
-
 @app.get("/heists")
 def get_all_heists():
     return gta_database["heists"]
@@ -508,9 +554,7 @@ def get_heists_by_ranking(ranking: str):
     if not result: raise HTTPException(status_code=404, detail="Ranking tier not found.")
     return result
 
-
 # --- CONTACT MISSION ROUTES ---
-
 @app.get("/contact")
 def get_all_contact_missions():
     return gta_database["contact"]
