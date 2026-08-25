@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA Businesses</title>
-    <link rel="stylesheet" href="business.css">
+    <title>GTA Heists</title>
+    <link rel="stylesheet" href="heists.css">
 </head>
 <body>
 
     <!-- Header Section -->
     <header>
-        <h1>Business huh? Sounds Boring...</h1>
+        <h1>Be careful who you steal from... Anyways!</h1>
         <div class="controls">
-            <input type="text" id="search-bar" placeholder="Search businesses...">
+            <input type="text" id="search-bar" placeholder="Search heists...">
             <button id="categories-btn">Categories</button>
         </div>
     </header>
@@ -22,23 +22,23 @@
         
         <!-- Rank 1 -->
         <section class="rank-section">
-            <h2 class="rank-green">Suspiciously Profitable</h2>
-            <!-- Added id="grid-profitable" and emptied the cards -->
-            <div class="business-grid" id="grid-profitable"></div>
+            <h2 class="rank-green">Billionaire Amongst Millionaires</h2>
+            <!-- Added id="grid-billionaire" and emptied the cards -->
+            <div class="heist-grid" id="grid-billionaire"></div>
         </section>
 
         <!-- Rank 2 -->
         <section class="rank-section">
-            <h2 class="rank-yellow">Above Minimum Wage</h2>
-            <!-- Added id="grid-mid" and emptied the cards -->
-            <div class="business-grid" id="grid-mid"></div>
+            <h2 class="rank-yellow">Typical Bank Heist</h2>
+            <!-- Added id="grid-typical" and emptied the cards -->
+            <div class="heist-grid" id="grid-typical"></div>
         </section>
 
         <!-- Rank 3 -->
         <section class="rank-section">
-            <h2 class="rank-red">Going Bankrupt</h2>
-            <!-- Added id="grid-bad" and emptied the cards -->
-            <div class="business-grid" id="grid-bad"></div>
+            <h2 class="rank-red">What is this? A Convenience Store?</h2>
+            <!-- Added id="grid-convenience" and emptied the cards -->
+            <div class="heist-grid" id="grid-convenience"></div>
         </section>
 
     </main>
@@ -50,12 +50,12 @@
             <h2>Select a Path</h2>
             <div class="category-options">
                 <div class="category-card nav-card" id="nav-home"><p>Home</p></div>
-                <div class="category-card nav-card" id="nav-heists"><p>Heists</p></div>
+                <div class="category-card nav-card" id="nav-business"><p>Business</p></div>
             </div>
         </div>
     </div>
 
-    <!-- Modal 2: Split-Screen Business Details -->
+    <!-- Modal 2: Split-Screen Heist Details -->
     <div id="details-overlay" class="hidden">
         <div class="details-modal-content">
             <button id="close-details-btn" class="close-btn">X</button>
@@ -66,13 +66,13 @@
                 </div>
                 <!-- Right: Black Info Panel -->
                 <div class="details-text">
-                    <h3 id="detail-title">Business Name</h3>
+                    <h3 id="detail-title">Heist Name</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="business.js"></script>
+    <script src="heists.js"></script>
 </body>
 </html>
