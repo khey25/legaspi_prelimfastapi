@@ -1,0 +1,219 @@
+/* General Page Setup */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* Dark theme */
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Text */
+h1 {
+    font-size: 3.5rem;
+    color: #4CAF50; /* GTA Money Green */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+/* Search Bar and Categories Button */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+#search-bar {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    width: 350px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    background-color: #222;
+    color: white;
+}
+
+#categories-btn {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#categories-btn:hover {
+    background-color: #45a049;
+}
+
+/* --- MODAL OVERLAY STYLES --- */
+
+#categories-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark dimming effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Keeps it on top of everything */
+}
+
+/* A utility class to hide the modal by default */
+.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid #4CAF50;
+    width: 80%;
+    max-width: 1000px;
+    position: relative;
+    text-align: center;
+}
+
+#close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.category-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.category-card {
+    flex: 1;
+    height: 350px;
+    background-color: #222;
+    border: 3px dashed #555;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4CAF50;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.category-card:hover {
+    transform: scale(1.02);
+    border-color: #4CAF50;
+    border-style: solid;
+}
+
+/* --- RESPONSIVE DESIGN FOR THE MODAL --- */
+
+/* Tablets & Mobile */
+@media (max-width: 900px) {
+    .category-options {
+        flex-direction: column; /* Stack the Businesses and Heist placeholders vertically */
+    }
+
+    .category-card {
+        height: 250px; /* Make them slightly shorter so both fit on a vertical screen */
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 30px 15px;
+    }
+}
+
+/* Main Content Area */
+.main-content {
+    width: 100%;
+    max-width: 1300px; /* Keeps it from stretching too wide on massive screens */
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #eeeeee;
+}
+
+/* 3 Horizontal Templates */
+.templates-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.template-card {
+    flex: 1; /* Ensures all 3 boxes take up equal horizontal space */
+    background-color: #1e1e1e;
+    border: 3px dashed #555; /* Dashed border to show it's a template */
+    height: 450px; /* Makes them large and take up most of the vertical space */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1.5rem;
+}
+
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+
+/* Tablets and smaller desktop screens */
+@media (max-width: 900px) {
+    .templates-container {
+        flex-direction: column; /* Stacks the 3 templates vertically */
+        align-items: center;
+    }
+    
+    .template-card {
+        width: 100%;
+        max-width: 500px; /* Prevents the stacked cards from looking awkwardly wide */
+        height: 300px; /* Slightly shorter for smaller screens */
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem; /* Shrinks the giant header to fit */
+        margin-top: 20px;
+    }
+
+    .controls {
+        flex-direction: column; /* Stacks the search bar and button */
+        width: 100%;
+    }
+
+    #search-bar {
+        width: 100%;
+        box-sizing: border-box; /* Ensures padding doesn't push the bar off-screen */
+    }
+
+    #categories-btn {
+        width: 100%;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+}

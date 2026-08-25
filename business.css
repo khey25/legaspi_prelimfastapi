@@ -1,0 +1,210 @@
+/* General Page Setup */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Header Text */
+h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+#search-bar {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    width: 350px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    background-color: #222;
+    color: white;
+}
+
+#categories-btn {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Main Content Area */
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.rank-section {
+    margin-bottom: 50px;
+}
+
+/* Ranked Headers */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+.rank-green { color: #4CAF50; }
+.rank-yellow { color: #FFEB3B; }
+.rank-red { color: #F44336; }
+
+/* Business Grid (Auto-wrapping placeholders) */
+.business-grid {
+    display: grid;
+    /* This automatically figures out how many 250px cards fit on the screen */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.business-card {
+    height: 160px;
+    background-color: #1e1e1e;
+    border: 2px dashed #555;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #aaa;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.business-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffffff;
+    border-style: solid;
+}
+
+/* --- MODAL OVERLAYS (Categories & Details) --- */
+#categories-overlay, #details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden { display: none !important; }
+
+/* Reusing Modal Styles */
+.modal-content, .details-modal-content {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid #4CAF50;
+    position: relative;
+    text-align: center;
+}
+.modal-content { width: 80%; max-width: 800px; }
+.details-modal-content { width: 90%; max-width: 1000px; padding: 0; overflow: hidden; border: 2px solid #777;}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Categories Modal Specifics */
+.category-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+}
+.nav-card {
+    flex: 1;
+    height: 250px;
+    background-color: #222;
+    border: 3px dashed #555;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #4CAF50;
+    cursor: pointer;
+}
+
+/* Split-Screen Details Specifics */
+.details-split {
+    display: flex;
+    height: 600px; /* Enlarge the overall box */
+}
+.details-image {
+    flex: 1.2; /* Takes slightly more space than text */
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1.5rem;
+    border-right: 2px solid #333;
+}
+.details-text {
+    flex: 1;
+    background-color: #000000; /* True black background requested */
+    color: #ddd;
+    padding: 40px;
+    text-align: left;
+    overflow-y: auto; /* Adds a scrollbar just to the text if it gets too long */
+}
+.details-text h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+@media (max-width: 900px) {
+    .details-split {
+        flex-direction: column; /* Stack image on top, text on bottom */
+        height: 80vh; /* Responsive height */
+    }
+    .details-image { flex: 1; border-right: none; border-bottom: 2px solid #333; min-height: 250px;}
+    .details-text { flex: 1; padding: 25px; }
+    
+    .category-options { flex-direction: column; }
+    .nav-card { height: 150px; }
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    .controls { flex-direction: column; width: 100%; }
+    #search-bar, #categories-btn { width: 100%; box-sizing: border-box; }
+}

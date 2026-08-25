@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA Businesses</title>
+    <link rel="stylesheet" href="business.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Business huh? Sounds Boring...</h1>
+        <div class="controls">
+            <input type="text" id="search-bar" placeholder="Search businesses...">
+            <button id="categories-btn">Categories</button>
+        </div>
+    </header>
+
+    <!-- Main Content: Scrollable Body -->
+    <main class="main-content">
+        
+        <!-- Rank 1 -->
+        <section class="rank-section">
+            <h2 class="rank-green">Suspiciously Profitable</h2>
+            <div class="business-grid">
+                <div class="business-card"><p>Acid Lab</p></div>
+                <div class="business-card"><p>Nightclub</p></div>
+                <div class="business-card"><p>Bunker</p></div>
+            </div>
+        </section>
+
+        <!-- Rank 2 -->
+        <section class="rank-section">
+            <h2 class="rank-yellow">Above Minimum Wage</h2>
+            <div class="business-grid">
+                <div class="business-card"><p>CEO Cargo</p></div>
+                <div class="business-card"><p>Agency</p></div>
+                <div class="business-card"><p>Hangar</p></div>
+                <div class="business-card"><p>Bail Office</p></div>
+            </div>
+        </section>
+
+        <!-- Rank 3 -->
+        <section class="rank-section">
+            <h2 class="rank-red">Going Bankrupt</h2>
+            <div class="business-grid">
+                <div class="business-card"><p>Document Forgery</p></div>
+                <div class="business-card"><p>Weed Farm</p></div>
+                <div class="business-card"><p>Counterfeit Cash</p></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal 1: Categories Navigation -->
+    <div id="categories-overlay" class="hidden">
+        <div class="modal-content">
+            <button id="close-categories-btn" class="close-btn">X</button>
+            <h2>Select a Path</h2>
+            <div class="category-options">
+                <div class="category-card nav-card" id="nav-home"><p>Home</p></div>
+                <div class="category-card nav-card" id="nav-heists"><p>Heists</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Split-Screen Business Details -->
+    <div id="details-overlay" class="hidden">
+        <div class="details-modal-content">
+            <button id="close-details-btn" class="close-btn">X</button>
+            <div class="details-split">
+                <!-- Left: Image -->
+                <div class="details-image">
+                    <p>Enlarged Image Placeholder</p>
+                </div>
+                <!-- Right: Black Info Panel -->
+                <div class="details-text">
+                    <h3 id="detail-title">Business Name</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="business.js"></script>
+</body>
+</html>
