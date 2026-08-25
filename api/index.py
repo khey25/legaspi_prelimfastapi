@@ -11,7 +11,7 @@ gta_database = {
         ],
         "Above Minimum Wage": [
             {"name": "Special & Vehicle Cargo", "property": "Executive Office"},
-            {"name": "Cocaint Lockup", "property": "MC Clubhouse"},
+            {"name": "Cocaine Lockup", "property": "MC Clubhouse"},
             {"name": "Air Freight Cargo", "property": "Hangar"},
             {"name": "Bail Enforcement", "property": "Bail Office"}
         ],
