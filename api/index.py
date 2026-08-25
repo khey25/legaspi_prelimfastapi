@@ -50,8 +50,55 @@ gta_database = {
             {"name": "Auto Shop Contracts", "required_property": "Auto Shop"},
             {"name": "Salvage Yard Robberies", "required_property": "Salvage Yard"}
         ]
+    },
+
+"contact": {
+        "Money and Time Efficient": [
+            {
+                "name": "First Dose & Last Dose", 
+                "contact": "Dax", 
+                "image_url": ""
+            },
+            {
+                "name": "Payphone Hits", 
+                "contact": "Franklin Clinton", 
+                "image_url": ""
+            }
+        ],
+        "Just for the Vibes": [
+            {
+                "name": "Dispatch Services", 
+                "contact": "Martin Madrazo", 
+                "image_url": ""
+            },
+            {
+                "name": "Premium Deluxe Repo Work", 
+                "contact": "Simeon Yetarian", 
+                "image_url": ""
+            },
+            {
+                "name": "Last Play Missions", 
+                "contact": "Gerald", 
+                "image_url": ""
+            }
+        ],
+        "Why are you even doing this?": [
+            {
+                "name": "Operation Paper Trail", 
+                "contact": "Agent ULP", 
+                "image_url": ""
+            },
+            {
+                "name": "Classic Grinds", 
+                "contact": "Lester Crest", 
+                "image_url": ""
+            }
+        ]
     }
 }
+
+
+
 
 # --- HOME ENDPOINT ---
 
@@ -113,6 +160,34 @@ def search_heists(q: Optional[str] = ""):
 def get_heists_by_ranking(ranking: str):
     """Search heists by ranking tier."""
     result = gta_database["heists"].get(ranking)
+    if not result:
+        raise HTTPException(status_code=404, detail="Ranking tier not found.")
+    return result
+
+    # --- CONTACT MISSION ROUTES ---
+
+@app.get("/contact")
+def get_all_contact_missions():
+    """Returns all contact missions grouped by ranking."""
+    return gta_database["contact"]
+
+@app.get("/contact/search")
+def search_contact_missions(q: Optional[str] = ""):
+    """Searches contact missions by name."""
+    if not q:
+        return gta_database["contact"]
+    
+    results = {"Money and Time Efficient": [], "Just for the Vibes": [], "Why are you even doing this?": []}
+    for tier, items in gta_database["contact"].items():
+        matched = [c for c in items if q.lower() in c["name"].lower()]
+        if matched:
+            results[tier] = matched
+    return results
+
+@app.get("/contact/{ranking}")
+def get_contact_by_ranking(ranking: str):
+    """Search contact missions by ranking tier."""
+    result = gta_database["contact"].get(ranking)
     if not result:
         raise HTTPException(status_code=404, detail="Ranking tier not found.")
     return result
