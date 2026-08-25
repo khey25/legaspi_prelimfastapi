@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA Contact Missions</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <header>
+        <h1>Pick up the phone, it's money calling...</h1>
+        <div class="controls">
+            <input type="text" id="search-bar" placeholder="Search missions...">
+            <button id="categories-btn">Categories</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="rank-section">
+            <h2 class="rank-green">Money and Time Efficient</h2>
+            <div class="contact-grid" id="grid-efficient"></div>
+        </section>
+
+        <section class="rank-section">
+            <h2 class="rank-yellow">Just for the Vibes</h2>
+            <div class="contact-grid" id="grid-vibes"></div>
+        </section>
+
+        <section class="rank-section">
+            <h2 class="rank-red">Why are you even doing this?</h2>
+            <div class="contact-grid" id="grid-why"></div>
+        </section>
+    </main>
+
+    <!-- Navigation Modal -->
+    <div id="categories-overlay" class="hidden">
+        <div class="modal-content">
+            <button id="close-categories-btn" class="close-btn">X</button>
+            <h2>Select a Path</h2>
+            <div class="category-options">
+                <div class="category-card nav-card" id="nav-home"><p>Home</p></div>
+                <div class="category-card nav-card" id="nav-business"><p>Businesses</p></div>
+                <div class="category-card nav-card" id="nav-heists"><p>Heists</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details Modal -->
+    <div id="details-overlay" class="hidden">
+        <div class="details-modal-content">
+            <button id="close-details-btn" class="close-btn">X</button>
+            <div class="details-split">
+                <div class="details-image"></div>
+                <div class="details-text">
+                    <h3 id="detail-title">Mission Name</h3>
+                    <p>Details coming soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="contact.js"></script>
+</body>
+</html>

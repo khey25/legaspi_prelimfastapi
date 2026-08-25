@@ -1,0 +1,79 @@
+const API_URL = "https://legaspi-prelimfastapi.vercel.app";
+
+const categoriesBtn = document.getElementById('categories-btn');
+const categoriesOverlay = document.getElementById('categories-overlay');
+const closeCategoriesBtn = document.getElementById('close-categories-btn');
+const detailsOverlay = document.getElementById('details-overlay');
+const closeDetailsBtn = document.getElementById('close-details-btn');
+const detailTitle = document.getElementById('detail-title');
+const detailDescription = document.querySelector('.details-text p');
+const detailImageContainer = document.querySelector('.details-image');
+
+// Nav Routing
+categoriesBtn.addEventListener('click', () => categoriesOverlay.classList.remove('hidden'));
+closeCategoriesBtn.addEventListener('click', () => categoriesOverlay.classList.add('hidden'));
+document.getElementById('nav-home').addEventListener('click', () => window.location.href = 'menu.html');
+document.getElementById('nav-business').addEventListener('click', () => window.location.href = 'business.html');
+document.getElementById('nav-heists').addEventListener('click', () => window.location.href = 'heists.html');
+
+// Initial Load
+async function loadContactMissions() {
+    try {
+        const response = await fetch(`${API_URL}/contact`);
+        const data = await response.json(); 
+        buildCards(data["Money and Time Efficient"], "grid-efficient");
+        buildCards(data["Just for the Vibes"], "grid-vibes");
+        buildCards(data["Why are you even doing this?"], "grid-why");
+    } catch (error) { console.error(error); }
+}
+
+// Build Cards with Image Support
+function buildCards(missionList, gridId) {
+    const grid = document.getElementById(gridId);
+
+    missionList.forEach(mission => {
+        const card = document.createElement('div');
+        card.className = 'contact-card';
+        
+        card.innerHTML = `
+            <img src="${mission.image_url}" alt="${mission.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 0.6; position: absolute; top: 0; left: 0; z-index: -1;">
+            <p style="position: relative; z-index: 1; margin: 0; text-shadow: 2px 2px 4px #000;">${mission.name}</p>
+        `;
+
+        card.addEventListener('click', () => {
+            detailTitle.innerText = mission.name;
+            detailDescription.innerText = `Mission Giver: ${mission.contact}\n\nMore details coming soon...`;
+            detailImageContainer.innerHTML = `<img src="${mission.image_url}" alt="${mission.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
+            detailsOverlay.classList.remove('hidden');
+        });
+
+        grid.appendChild(card);
+    });
+}
+
+// Search Logic
+const searchBar = document.getElementById('search-bar');
+searchBar.addEventListener('input', async (e) => {
+    const searchTerm = e.target.value;
+    try {
+        const response = await fetch(`${API_URL}/contact/search?q=${searchTerm}`);
+        const data = await response.json();
+
+        document.getElementById("grid-efficient").innerHTML = "";
+        document.getElementById("grid-vibes").innerHTML = "";
+        document.getElementById("grid-why").innerHTML = "";
+
+        if (data["Money and Time Efficient"]) buildCards(data["Money and Time Efficient"], "grid-efficient");
+        if (data["Just for the Vibes"]) buildCards(data["Just for the Vibes"], "grid-vibes");
+        if (data["Why are you even doing this?"]) buildCards(data["Why are you even doing this?"], "grid-why");
+    } catch (error) { console.error(error); }
+});
+
+// Close Modals
+closeDetailsBtn.addEventListener('click', () => detailsOverlay.classList.add('hidden'));
+window.addEventListener('click', (event) => {
+    if (event.target === categoriesOverlay) categoriesOverlay.classList.add('hidden');
+    if (event.target === detailsOverlay) detailsOverlay.classList.add('hidden');
+});
+
+loadContactMissions();

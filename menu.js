@@ -29,6 +29,10 @@ document.getElementById('cat-heists').addEventListener('click', () => {
     window.location.href = 'heists.html';
 });
 
+document.getElementById('cat-contact').addEventListener('click', () => {
+    window.location.href = 'contact.html';
+});
+
 // --- Unified Search Logic ---
 searchBar.addEventListener('input', async (e) => {
     const searchTerm = e.target.value.trim();

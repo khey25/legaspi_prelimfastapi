@@ -25,6 +25,10 @@ document.getElementById('nav-business').addEventListener('click', () => {
     window.location.href = 'business.html'; 
 });
 
+document.getElementById('nav-contact').addEventListener('click', () => {
+    window.location.href = 'contact.html';
+});
+
 // --- API FETCH LOGIC ---
 
 // Reaches out to your API to get the heist data
