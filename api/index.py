@@ -1,7 +1,20 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from typing import Optional
 
 app = FastAPI()
 
+# --- CORS MIDDLEWARE ---
+# This allows your frontend website to pull data from this backend API
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# --- DATABASE MOCK ---
 gta_database = {
     "businesses": {
         "Suspiciously Profitable": [
@@ -40,42 +53,65 @@ gta_database = {
     }
 }
 
-#DITO YUNG MGA DATA ENDPOINTS
+# --- HOME ENDPOINT ---
 
 @app.get("/")
 def home():
     return {"message": "Welcome to the GTA Online Activity API!"}
+
+
+# --- BUSINESS ROUTES ---
 
 @app.get("/businesses")
 def get_all_businesses():
     """Returns all businesses grouped by ranking."""
     return gta_database["businesses"]
 
+@app.get("/businesses/search")
+def search_businesses(q: Optional[str] = ""):
+    """Searches businesses by name."""
+    if not q:
+        return gta_database["businesses"]
+    
+    results = {"Suspiciously Profitable": [], "Above Minimum Wage": [], "Going Bankrupt": []}
+    for tier, items in gta_database["businesses"].items():
+        matched = [b for b in items if q.lower() in b["name"].lower()]
+        if matched:
+            results[tier] = matched
+    return results
+
 @app.get("/businesses/{ranking}")
 def get_businesses_by_ranking(ranking: str):
-    """
-    Search businesses by ranking. 
-    Use exactly: 'Suspiciously Profitable', 'Above Minimum Wage', or 'Going Bankrupt'
-    """
-    # Using .get() prevents errors if the user types a ranking that doesn't exist
+    """Search businesses by ranking tier."""
     result = gta_database["businesses"].get(ranking)
     if not result:
         raise HTTPException(status_code=404, detail="Ranking tier not found.")
     return result
 
-# --- Heist Routes ---
+
+# --- HEIST ROUTES ---
 
 @app.get("/heists")
 def get_all_heists():
     """Returns all heists grouped by ranking."""
     return gta_database["heists"]
 
+@app.get("/heists/search")
+def search_heists(q: Optional[str] = ""):
+    """Searches heists by name."""
+    if not q:
+        return gta_database["heists"]
+    
+    results = {"Billionaire Amongst Millionaires": [], "Typical Bank Heist": [], "What is this? A Convenience Store?": []}
+    for tier, items in gta_database["heists"].items():
+        matched = [h for h in items if q.lower() in h["name"].lower()]
+        if matched:
+            results[tier] = matched
+    return results
+
 @app.get("/heists/{ranking}")
 def get_heists_by_ranking(ranking: str):
-    """
-    Search heists by ranking. 
-    Use exactly: 'Billionaire Amongst Millionaires', 'Typical Bank Heist', or 'What is this? A Convenience Store?'
-    """
+    """Search heists by ranking tier."""
     result = gta_database["heists"].get(ranking)
     if not result:
         raise HTTPException(status_code=404, detail="Ranking tier not found.")
