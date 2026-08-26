@@ -512,14 +512,14 @@ gta_database = {
 # --- HOME ENDPOINT ---
 @app.get("/")
 def home():
-    return {"message": "Welcome to the GTA Online Activity API!"}
+    return {"message": "Welcome to the Gaming Activity API!"}
 
 # --- BUSINESS ROUTES ---
-@app.get("/businesses")
+@app.get("/gta/businesses")
 def get_all_businesses():
     return gta_database["businesses"]
 
-@app.get("/businesses/search")
+@app.get("/gta/businesses/search")
 def search_businesses(q: Optional[str] = ""):
     if not q: return gta_database["businesses"]
     results = {"Suspiciously Profitable": [], "Above Minimum Wage": [], "Going Bankrupt": []}
@@ -528,18 +528,18 @@ def search_businesses(q: Optional[str] = ""):
         if matched: results[tier] = matched
     return results
 
-@app.get("/businesses/{ranking}")
+@app.get("/gta/businesses/{ranking}")
 def get_businesses_by_ranking(ranking: str):
     result = gta_database["businesses"].get(ranking)
     if not result: raise HTTPException(status_code=404, detail="Ranking tier not found.")
     return result
 
 # --- HEIST ROUTES ---
-@app.get("/heists")
+@app.get("/gta/heists")
 def get_all_heists():
     return gta_database["heists"]
 
-@app.get("/heists/search")
+@app.get("/gta/heists/search")
 def search_heists(q: Optional[str] = ""):
     if not q: return gta_database["heists"]
     results = {"Billionaire Amongst Millionaires": [], "Typical Bank Heist": [], "What is this? A Convenience Store?": []}
@@ -548,18 +548,18 @@ def search_heists(q: Optional[str] = ""):
         if matched: results[tier] = matched
     return results
 
-@app.get("/heists/{ranking}")
+@app.get("/gta/heists/{ranking}")
 def get_heists_by_ranking(ranking: str):
     result = gta_database["heists"].get(ranking)
     if not result: raise HTTPException(status_code=404, detail="Ranking tier not found.")
     return result
 
 # --- CONTACT MISSION ROUTES ---
-@app.get("/contact")
+@app.get("/gta/contact")
 def get_all_contact_missions():
     return gta_database["contact"]
 
-@app.get("/contact/search")
+@app.get("/gta/contact/search")
 def search_contact_missions(q: Optional[str] = ""):
     if not q: return gta_database["contact"]
     results = {"Money and Time Efficient": [], "Just for the Vibes": [], "Why are you even doing this?": []}
@@ -568,7 +568,7 @@ def search_contact_missions(q: Optional[str] = ""):
         if matched: results[tier] = matched
     return results
 
-@app.get("/contact/{ranking}")
+@app.get("/gta/contact/{ranking}")
 def get_contact_by_ranking(ranking: str):
     result = gta_database["contact"].get(ranking)
     if not result: raise HTTPException(status_code=404, detail="Ranking tier not found.")
