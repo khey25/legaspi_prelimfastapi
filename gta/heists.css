@@ -74,6 +74,7 @@ h2 {
 /* Heist Grid (Auto-wrapping placeholders) */
 .heist-grid {
     display: grid;
+    /* This automatically figures out how many 250px cards fit on the screen */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
@@ -90,8 +91,6 @@ h2 {
     color: #aaa;
     cursor: pointer;
     transition: transform 0.2s, border-color 0.2s;
-    text-align: center;
-    padding: 10px;
 }
 
 .heist-card:hover {

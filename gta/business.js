@@ -22,7 +22,7 @@ closeCategoriesBtn.addEventListener('click', () => {
     categoriesOverlay.classList.add('hidden');
 });
 document.getElementById('nav-home').addEventListener('click', () => {
-    window.location.href = 'menu.html';
+    window.location.href = 'gtamenu.html';
 });
 document.getElementById('nav-heists').addEventListener('click', () => {
     window.location.href = 'heists.html'; 
@@ -34,7 +34,7 @@ document.getElementById('nav-contact').addEventListener('click', () => {
 // --- API FETCH LOGIC ---
 async function loadBusinesses() {
     try {
-        const response = await fetch(`${API_URL}/businesses`);
+        const response = await fetch(`${API_URL}/gta/businesses`);
         const data = await response.json(); 
 
         buildCards(data["Suspiciously Profitable"], "grid-profitable");
@@ -62,7 +62,7 @@ function buildCards(businessList, gridId) {
 
         // Inject the image and title. pointer-events: none ensures the click passes to the card.
         card.innerHTML = `
-            <img src="${business.image_url}" alt="${business.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: -1; pointer-events: none;">
+            <img src="${business.image_url}" alt="${business.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
             <p style="position: relative; z-index: 1; margin: 0; font-weight: bold; text-shadow: 2px 2px 4px #000; pointer-events: none;">${business.name}</p>
         `;
 
@@ -121,7 +121,7 @@ searchBar.addEventListener('input', async (e) => {
     const searchTerm = e.target.value.trim();
     
     try {
-        const response = await fetch(`${API_URL}/businesses/search?q=${searchTerm}`);
+        const response = await fetch(`${API_URL}/gta/businesses/search?q=${searchTerm}`);
         const data = await response.json();
 
         document.getElementById("grid-profitable").innerHTML = "";

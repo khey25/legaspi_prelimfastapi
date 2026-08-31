@@ -12,14 +12,14 @@ const detailImageContainer = document.querySelector('.details-image');
 // Nav Routing
 categoriesBtn.addEventListener('click', () => categoriesOverlay.classList.remove('hidden'));
 closeCategoriesBtn.addEventListener('click', () => categoriesOverlay.classList.add('hidden'));
-document.getElementById('nav-home').addEventListener('click', () => window.location.href = 'menu.html');
+document.getElementById('nav-home').addEventListener('click', () => window.location.href = 'gtamenu.html');
 document.getElementById('nav-business').addEventListener('click', () => window.location.href = 'business.html');
 document.getElementById('nav-heists').addEventListener('click', () => window.location.href = 'heists.html');
 
 // Initial Load
 async function loadContactMissions() {
     try {
-        const response = await fetch(`${API_URL}/contact`);
+        const response = await fetch(`${API_URL}/gta/contact`);
         const data = await response.json(); 
         buildCards(data["Money and Time Efficient"], "grid-efficient");
         buildCards(data["Just for the Vibes"], "grid-vibes");
@@ -36,8 +36,8 @@ function buildCards(missionList, gridId) {
         card.className = 'contact-card';
         
         card.innerHTML = `
-            <img src="${mission.image_url}" alt="${mission.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 0.6; position: absolute; top: 0; left: 0; z-index: -1;">
-            <p style="position: relative; z-index: 1; margin: 0; text-shadow: 2px 2px 4px #000;">${mission.name}</p>
+            <img src="${mission.image_url}" alt="${mission.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+            <p style="position: relative; z-index: 1; margin: 0; font-weight: bold; text-shadow: 2px 2px 4px #000; pointer-events: none;">${mission.name}</p>
         `;
 
         card.addEventListener('click', () => {
@@ -56,7 +56,7 @@ const searchBar = document.getElementById('search-bar');
 searchBar.addEventListener('input', async (e) => {
     const searchTerm = e.target.value;
     try {
-        const response = await fetch(`${API_URL}/contact/search?q=${searchTerm}`);
+        const response = await fetch(`${API_URL}/gta/contact/search?q=${searchTerm}`);
         const data = await response.json();
 
         document.getElementById("grid-efficient").innerHTML = "";

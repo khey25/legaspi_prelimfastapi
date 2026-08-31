@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA Hustle Methods</title>
+    <link rel="stylesheet" href="gtamenu.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>READY TO MAKE MONEY?</h1>
+        
+        <div class="controls">
+            <input type="text" id="search-bar" placeholder="Looking for something specific?">
+            <button id="categories-btn">Categories</button>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="main-content">
+        <h2>Top money hustling methods</h2>
+        
+        <!-- Replaced templates-container with category-options for flexbox styling -->
+        <div class="category-options">
+            
+            <!-- Card 1: Heists -->
+            <div class="nav-card" id="card-heists">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true" class="nav-img" alt="Cayo Perico">
+                <video src="https://github.com/khey25/legaspi_prelimfastapi/raw/refs/heads/main/gta/gtavideo/cayo.mp4" class="nav-video" loop playsinline></video>
+            </div>
+            
+            <!-- Card 2: Businesses -->
+            <div class="nav-card" id="card-businesses">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/nightclub.jpg?raw=true" class="nav-img" alt="Nightclub">
+                <video src="https://github.com/khey25/legaspi_prelimfastapi/raw/refs/heads/main/gta/gtavideo/nightclub.mp4" class="nav-video" loop playsinline></video>
+            </div>
+            
+            <!-- Card 3: Contact Missions -->
+            <div class="nav-card" id="card-contact">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/drug.jpg?raw=true" class="nav-img" alt="Drug Wars">
+                <video src="https://github.com/khey25/legaspi_prelimfastapi/raw/refs/heads/main/gta/gtavideo/drug.mp4" class="nav-video" loop playsinline></video>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal 1: Categories Overlay -->
+    <div id="categories-overlay" class="hidden">
+        <div class="modal-content">
+            <button id="close-modal-btn" class="close-btn">X</button>
+            <h2>Select a Path</h2>
+            <div class="category-options">
+                <!-- Placeholder for Businesses -->
+                <div class="category-card" id="cat-businesses">
+                    <p>Businesses</p>
+                </div>
+                <!-- Placeholder for Heists -->
+                <div class="category-card" id="cat-heists">
+                    <p>Heists</p>
+                </div>
+                <!-- Placeholder for Contact -->
+                <div class="category-card" id="cat-contact">
+                    <p>Contact</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Split-Screen Details -->
+    <div id="details-overlay" class="hidden">
+        <div class="details-modal-content">
+            <button id="close-details-btn" class="close-btn">X</button>
+            <div class="details-split">
+                <div class="details-image">
+                    <p>Enlarged Image Placeholder</p>
+                </div>
+                <div class="details-text">
+                    <h3 id="detail-title">Name</h3>
+                    <p>Details coming soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="gtamenu.js"></script>
+</body>
+</html>
