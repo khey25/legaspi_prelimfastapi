@@ -239,7 +239,7 @@ gta_database = {
                 "elite_challenge": False,
                 "release_update": "The Contract",
                 "release_year": 2021,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/dr-dre.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/dre.jpg?raw=true"
             },
             {
                 "name": "The Diamond Casino Heist", 
@@ -257,7 +257,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "The Diamond Casino Heist",
                 "release_year": 2019,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/casino.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/diamond.jpg?raw=true"
             }
         ],
         "Typical Bank Heist": [
@@ -277,7 +277,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "Heists Update",
                 "release_year": 2015,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/pacific-standard.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/pacific.jpg?raw=true"
             },
             {
                 "name": "The Doomsday Heist", 
@@ -295,7 +295,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "The Doomsday Heist",
                 "release_year": 2017,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/doomsday.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/doomsday.jpg?raw=true"
             },
             {
                 "name": "The Cluckin' Bell Farm Raid", 
@@ -313,7 +313,7 @@ gta_database = {
                 "elite_challenge": False,
                 "release_update": "The Cluckin' Bell Farm Raid",
                 "release_year": 2024,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/cluckin-bell.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cluckin.jpg?raw=true"
             }
         ],
         "What is this? A Convenience Store?": [
@@ -333,7 +333,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "Heists Update",
                 "release_year": 2015,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/fleeca.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/fleeca.jpg?raw=true"
             },
             {
                 "name": "Auto Shop Contracts", 
@@ -351,7 +351,7 @@ gta_database = {
                 "elite_challenge": False,
                 "release_update": "Los Santos Tuners",
                 "release_year": 2021,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/auto-shop.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/autoshop.jpg?raw=true"
             },
             {
                 "name": "Salvage Yard Robberies", 
@@ -369,7 +369,7 @@ gta_database = {
                 "elite_challenge": False,
                 "release_update": "The Chop Shop",
                 "release_year": 2023,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/salvage-yard.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/salvage.jpg?raw=true"
             }
         ]
     },
