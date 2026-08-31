@@ -391,7 +391,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "Los Santos Drug Wars",
                 "release_year": 2022,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/dax.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/drug.jpg?raw=true"
             },
             {
                 "name": "Payphone Hits", 
@@ -409,7 +409,7 @@ gta_database = {
                 "double_money_eligible": False,
                 "release_update": "The Contract",
                 "release_year": 2021,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/franklin.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/payphone.jpg?raw=true"
             }
         ],
         "Just for the Vibes": [
@@ -429,7 +429,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "Southern San Andreas Super Sport Series",
                 "release_year": 2018,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/martin.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/dispatch.jpg?raw=true"
             },
             {
                 "name": "Premium Deluxe Repo Work", 
@@ -447,7 +447,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "Arena War",
                 "release_year": 2019,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/simeon.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/repo.jpg?raw=true"
             },
             {
                 "name": "Last Play Missions", 
@@ -465,7 +465,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "Gerald's Last Play",
                 "release_year": 2020,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/gerald.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/last.jpg?raw=true"
             }
         ],
         "Why are you even doing this?": [
@@ -485,7 +485,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "The Criminal Enterprises",
                 "release_year": 2022,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/ulp.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/paper.jpg?raw=true"
             },
             {
                 "name": "Classic Grinds", 
@@ -503,7 +503,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "High Life Update",
                 "release_year": 2014,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/lester.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/classic.jpg?raw=true"
             }
         ]
     }
