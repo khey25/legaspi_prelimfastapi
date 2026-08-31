@@ -257,7 +257,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "The Diamond Casino Heist",
                 "release_year": 2019,
-                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/diamond.jpg?raw=true"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/casino.jpg?raw=true"
             }
         ],
         "Typical Bank Heist": [
