@@ -33,7 +33,7 @@ gta_database = {
                 "release_update": "Los Santos Drug Wars",
                 "release_year": 2022,
                 "location_options": 1,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/acid-lab.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/acid.jpg?raw=true"
             },
             {
                 "name": "Nightclub Management", 
@@ -51,7 +51,7 @@ gta_database = {
                 "release_update": "After Hours",
                 "release_year": 2018,
                 "location_options": 10,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/nightclub.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/nightclub.jpg?raw=true"
             },
             {
                 "name": "Gunrunning", 
@@ -69,7 +69,7 @@ gta_database = {
                 "release_update": "Gunrunning",
                 "release_year": 2017,
                 "location_options": 11,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/bunker.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/gunrunning.jpg?raw=true"
             }
         ],
         "Above Minimum Wage": [
@@ -89,7 +89,7 @@ gta_database = {
                 "release_update": "Further Adventures in Finance and Felony",
                 "release_year": 2016,
                 "location_options": 4,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/ceo-cargo.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/vehicle.jpg?raw=true"
             },
             {
                 "name": "Cocaine Lockup", 
@@ -107,7 +107,7 @@ gta_database = {
                 "release_update": "Bikers",
                 "release_year": 2016,
                 "location_options": 4,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/cocaine.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cocaine.jpg?raw=true"
             },
             {
                 "name": "Air Freight Cargo", 
@@ -125,7 +125,7 @@ gta_database = {
                 "release_update": "Smuggler's Run",
                 "release_year": 2017,
                 "location_options": 5,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/hangar.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/aircargo.jpg?raw=true"
             },
             {
                 "name": "Bail Enforcement", 
@@ -143,7 +143,7 @@ gta_database = {
                 "release_update": "Bottom Dollar Bounties",
                 "release_year": 2024,
                 "location_options": 5,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/bail-office.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/bail.jpg?raw=true"
             }
         ],
         "Going Bankrupt": [
@@ -163,7 +163,7 @@ gta_database = {
                 "release_update": "Bikers",
                 "release_year": 2016,
                 "location_options": 4,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/document-forgery.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/forgery.jpg?raw=true"
             },
             {
                 "name": "Weed Farm", 
@@ -181,7 +181,7 @@ gta_database = {
                 "release_update": "Bikers",
                 "release_year": 2016,
                 "location_options": 4,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/weed-farm.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/weed.jpg?raw=true"
             },
             {
                 "name": "Counterfeit Cash Factory", 
@@ -199,7 +199,7 @@ gta_database = {
                 "release_update": "Bikers",
                 "release_year": 2016,
                 "location_options": 4,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/counterfeit-cash.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cash.jpg?raw=true"
             }
         ]
     },
