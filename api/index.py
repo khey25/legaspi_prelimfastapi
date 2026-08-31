@@ -221,7 +221,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "The Cayo Perico Heist",
                 "release_year": 2020,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/cayo-perico.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true"
             },
             {
                 "name": "The Contract: Dr. Dre", 
