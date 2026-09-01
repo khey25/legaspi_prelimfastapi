@@ -1,13 +1,44 @@
 /* General Page Setup */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212; /* Dark theme */
+    background-color: transparent; /* Dark theme */
     color: #ffffff;
     margin: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden; /* Added from heists.css for consistency */
+}
+
+/* --- BACKGROUND SLIDER STYLES --- */
+#bg-slider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -5; /* Stays way behind all your cards */
+    background-color: #121212; /* Keeps the dark fallback vibe */
+    overflow: hidden; /* Prevents the 10% zoom from causing page scrollbars */
+}
+
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Hidden by default */
+    transform: scale(1); /* Normal size */
+    transition: opacity 1s ease-in-out, transform 3s linear; /* The magic animation */
+}
+
+.bg-image.active {
+    opacity: 0.35; /* Darkened slightly so your white text still pops */
+    transform: scale(1.05); /* Zooms in exactly 10% */
 }
 
 /* Header Text */
@@ -34,6 +65,7 @@ h1 {
     width: 350px;
     border-radius: 8px;
     border: 2px solid #333;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
     background-color: #222;
     color: white;
 }
@@ -46,6 +78,7 @@ h1 {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
     font-weight: bold;
     transition: background-color 0.2s;
 }
@@ -75,13 +108,14 @@ h2 {
     margin-top: 30px;
 }
 
-/* --- MAIN MENU INTERACTIVE VIDEO CARDS --- */
+/* --- MAIN MENU INTERACTIVE VIDEO CARDS (.nav-card) --- */
 .nav-card {
     flex: 1; /* Ensures all 3 boxes take up equal horizontal space */
     background-color: #222;
-    border: 3px dashed #555; 
+    border: 2px solid #ffffff; 
     height: 450px; /* Makes them large and cinematic */
     border-radius: 12px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,7 +127,7 @@ h2 {
 
 .nav-card:hover {
     transform: translateY(-5px);
-    border-color: #ffffff;
+    border-color: #18d628;
     border-style: solid;
 }
 
@@ -117,14 +151,45 @@ h2 {
     opacity: 0; /* Invisible by default until hovered */
 }
 
-/* --- MODAL OVERLAY STYLES --- */
-#categories-overlay {
+/* --- SEARCH RESULTS GRID --- */
+.search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.result-card {
+    height: 160px;
+    background-color: #1e1e1e;
+    border: 2px solid #ffffff; /* Unified border styling */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 6px rgb(0, 0, 0); /* Unified shadow styling */
+    color: #aaa;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    border-color: #18d628; /* Unified hover color */
+    border-style: solid;
+}
+
+/* --- MODAL OVERLAYS (Categories & Details) --- */
+#categories-overlay, #details-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85); /* Dark dimming effect */
+    background-color: rgba(0, 0, 0, 0.6); /* Unified Blur Background */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Ensures it works on Safari */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,18 +200,30 @@ h2 {
     display: none !important;
 }
 
-.modal-content {
+/* Unified Modal Styles */
+.modal-content, .details-modal-content {
     background-color: #1a1a1a;
     padding: 40px;
     border-radius: 12px;
     border: 2px solid #4CAF50;
-    width: 80%;
-    max-width: 1000px;
     position: relative;
     text-align: center;
 }
 
-#close-modal-btn {
+.modal-content {
+    width: 80%;
+    max-width: 800px; /* Aligned with heists.css */
+}
+
+.details-modal-content {
+    width: 90%;
+    max-width: 1000px;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid #777;
+}
+
+.close-btn {
     position: absolute;
     top: 15px;
     right: 20px;
@@ -155,28 +232,66 @@ h2 {
     color: #fff;
     font-size: 1.5rem;
     cursor: pointer;
+    z-index: 10;
 }
 
+/* Categories Modal Specifics */
 .category-card {
     flex: 1;
     height: 350px;
     background-color: #222;
-    border: 3px dashed #555;
+    border: 2px solid #ffffff; 
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 6px rgb(0, 0, 0); 
     font-size: 2rem;
     font-weight: bold;
     color: #4CAF50;
     cursor: pointer;
     transition: transform 0.2s, border-color 0.2s;
+    position: relative; 
+    overflow: hidden;
 }
 
 .category-card:hover {
     transform: scale(1.02);
     border-color: #4CAF50;
     border-style: solid;
+}
+
+/* Split-Screen Details Specifics */
+.details-split {
+    display: flex;
+    height: 600px; 
+}
+
+.details-image {
+    flex: 1.2; 
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1.5rem;
+    border-right: 2px solid #333;
+}
+
+.details-text {
+    flex: 1;
+    background-color: #000000; 
+    color: #ddd;
+    padding: 40px;
+    text-align: left;
+    overflow-y: auto; 
+}
+
+.details-text h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 15px;
 }
 
 /* --- RESPONSIVE DESIGN (Media Queries) --- */
@@ -189,7 +304,7 @@ h2 {
     }
 
     .category-card {
-        height: 250px; /* Slightly shorter for smaller screens */
+        height: 150px; /* Reduced to match the 150px on other pages */
         width: 100%;
     }
 
@@ -197,6 +312,23 @@ h2 {
         width: 100%;
         max-width: 500px; /* Prevents stacked cards from looking awkwardly wide */
         height: 300px; 
+    }
+
+    .details-split { 
+        flex-direction: column; 
+        height: 80vh; 
+    }
+    
+    .details-image { 
+        flex: 1; 
+        border-right: none; 
+        border-bottom: 2px solid #333; 
+        min-height: 250px;
+    }
+    
+    .details-text { 
+        flex: 1; 
+        padding: 25px; 
     }
 
     .modal-content {
@@ -217,64 +349,12 @@ h2 {
         width: 100%;
     }
 
-    #search-bar {
+    #search-bar, #categories-btn {
         width: 100%;
         box-sizing: border-box; /* Ensures padding doesn't push the bar off-screen */
-    }
-
-    #categories-btn {
-        width: 100%;
     }
     
     h2 {
         font-size: 1.8rem;
     }
-}
-
-/* --- SEARCH RESULTS GRID --- */
-.search-results {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    width: 100%;
-}
-.result-card {
-    height: 160px;
-    background-color: #1e1e1e;
-    border: 2px dashed #4CAF50;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: #aaa;
-    cursor: pointer;
-    transition: transform 0.2s, border-color 0.2s;
-}
-.result-card:hover {
-    transform: translateY(-5px);
-    border-color: #ffffff;
-    border-style: solid;
-}
-
-/* --- REUSED SPLIT-SCREEN MODAL STYLES --- */
-#details-overlay {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85); display: flex;
-    justify-content: center; align-items: center; z-index: 1000;
-}
-.details-modal-content {
-    background-color: #1a1a1a; border-radius: 12px; border: 2px solid #777;
-    position: relative; text-align: center; width: 90%; max-width: 1000px; overflow: hidden;
-}
-.close-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; z-index: 10;}
-.details-split { display: flex; height: 600px; }
-.details-image { flex: 1.2; background-color: #222; display: flex; align-items: center; justify-content: center; color: #777; font-size: 1.5rem; border-right: 2px solid #333; }
-.details-text { flex: 1; background-color: #000; color: #ddd; padding: 40px; text-align: left; overflow-y: auto; }
-.details-text h3 { margin-top: 0; color: #fff; font-size: 2rem; margin-bottom: 15px; }
-
-@media (max-width: 900px) {
-    .details-split { flex-direction: column; height: 80vh; }
-    .details-image { flex: 1; border-right: none; border-bottom: 2px solid #333; min-height: 250px;}
-    .details-text { flex: 1; padding: 25px; }
 }

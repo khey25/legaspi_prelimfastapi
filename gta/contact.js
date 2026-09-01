@@ -1,5 +1,35 @@
 const API_URL = "https://legaspi-prelimfastapi.vercel.app";
 
+// --- BACKGROUND SLIDER LOGIC ---
+const backgrounds = [
+    "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/payphone.jpg?raw=true",
+    "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/classic.jpg?raw=true",
+    "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/paper.jpg?raw=true"
+];
+
+const bgSlider = document.getElementById('bg-slider');
+let currentBgIndex = 0;
+
+if (bgSlider) {
+    // 1. Create the image layers inside the HTML
+    backgrounds.forEach((src, index) => {
+        const div = document.createElement('div');
+        div.className = 'bg-image';
+        div.style.backgroundImage = `url('${src}')`;
+        if (index === 0) div.classList.add('active'); // Show the first one immediately
+        bgSlider.appendChild(div);
+    });
+
+    const bgDivs = document.querySelectorAll('.bg-image');
+
+    // 2. Cycle them every 3 seconds (3000 milliseconds)
+    setInterval(() => {
+        bgDivs[currentBgIndex].classList.remove('active'); // Fade out current
+        currentBgIndex = (currentBgIndex + 1) % backgrounds.length; // Move to next
+        bgDivs[currentBgIndex].classList.add('active'); // Fade in and zoom next
+    }, 3000);
+}
+
 const categoriesBtn = document.getElementById('categories-btn');
 const categoriesOverlay = document.getElementById('categories-overlay');
 const closeCategoriesBtn = document.getElementById('close-categories-btn');
