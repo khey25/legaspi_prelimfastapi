@@ -152,11 +152,16 @@ searchBar.addEventListener('input', async (e) => {
         }
 
         // Build the fully formatted result cards!
-        combinedResults.forEach(item => {
+        // Build the fully formatted result cards!
+        // NEW: We added "index" here to track the card number
+        combinedResults.forEach((item, index) => { 
             const card = document.createElement('div');
             card.className = 'result-card';
             card.style.position = "relative";
             card.style.overflow = "hidden";
+            
+            // NEW: This dynamically adds a 0.1s delay between each card loading!
+            card.style.animationDelay = `${index * 0.1}s`; 
 
             card.innerHTML = `
                 <img src="${item.image_url}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">

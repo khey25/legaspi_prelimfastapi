@@ -123,6 +123,7 @@ h2 {
     position: relative; /* Crucial so the image/video stay inside the box */
     overflow: hidden;
     transition: transform 0.2s, border-color 0.2s;
+    
 }
 
 .nav-card:hover {
@@ -172,6 +173,8 @@ h2 {
     color: #aaa;
     cursor: pointer;
     transition: transform 0.2s, border-color 0.2s;
+    opacity: 0; /* Start invisible */
+    animation: cascade-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .result-card:hover {
@@ -253,7 +256,37 @@ h2 {
     transition: transform 0.2s, border-color 0.2s;
     position: relative; 
     overflow: hidden;
+    animation: modal-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Added from heists.css for consistency */
 }
+
+/* --- MODAL POP-IN ANIMATION --- */
+@keyframes modal-pop {
+    0% {
+        transform: scale(0.8); /* Starts 20% smaller */
+        opacity: 0; /* Starts invisible */
+    }
+    100% {
+        transform: scale(1); /* Snaps to full size */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* --- STAGGERED CASCADE ANIMATION --- */
+@keyframes cascade-in {
+    0% {
+        opacity: 0;
+        top: 50px;
+    }
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+/* Hardcode the delays for the 3 main menu cards */
+#card-heists { animation-delay: 0.1s !important; }
+#card-businesses { animation-delay: 0.25s !important; }
+#card-contact { animation-delay: 0.4s !important; }
 
 .category-card:hover {
     transform: scale(1.02);

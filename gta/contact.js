@@ -60,6 +60,7 @@ async function loadContactMissions() {
 // Build Cards with Image Support
 function buildCards(missionList, gridId) {
     const grid = document.getElementById(gridId);
+    if (!grid || !missionList) return; // Safety check
 
     missionList.forEach(mission => {
         const card = document.createElement('div');
@@ -72,8 +73,26 @@ function buildCards(missionList, gridId) {
 
         card.addEventListener('click', () => {
             detailTitle.innerText = mission.name;
-            detailDescription.innerText = `Mission Giver: ${mission.contact}\n\nMore details coming soon...`;
-            detailImageContainer.innerHTML = `<img src="${mission.image_url}" alt="${mission.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
+            detailImageContainer.innerHTML = `<img src="${mission.image_url}" alt="${mission.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px 0 0 8px;">`;
+            
+            // Loop through all database details
+            let detailsHTML = "";
+            for (const [key, value] of Object.entries(mission)) {
+                if (key === 'name' || key === 'image_url') continue;
+                
+                let formattedKey = key.split('_').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
+                let formattedValue = value;
+                
+                if (typeof value === 'boolean') {
+                    formattedValue = value ? '<span style="color: #4CAF50; font-weight: bold;">Yes</span>' : '<span style="color: #F44336; font-weight: bold;">No</span>';
+                } else if (typeof value === 'number' && (key.includes('cost') || key.includes('payout') || key.includes('base'))) {
+                    formattedValue = '<span style="color: #4CAF50; font-weight: bold;">$' + value.toLocaleString() + '</span>';
+                }
+
+                detailsHTML += `<span style="color: #FFEB3B;">${formattedKey}:</span> <span style="color: #fff;">${formattedValue}</span><br><br>`;
+            }
+            
+            detailDescription.innerHTML = detailsHTML;
             detailsOverlay.classList.remove('hidden');
         });
 
