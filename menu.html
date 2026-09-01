@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA Hustle Methods</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+<div id="bg-slider"></div>
+    <!-- Header Section -->
+    <header>
+        <h1>HUSTLE HUB</h1>
+        
+        <div class="controls">
+            <input type="text" id="search-bar" placeholder="Search for Games...">
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="main-content">
+        <h2>Top money hustling methods</h2>
+        
+        <!-- Replaced templates-container with category-options for flexbox styling -->
+        <div class="category-options">
+            
+            <!-- Card 1: Heists -->
+            <div class="nav-card" id="card-heists">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true" class="nav-img" alt="Cayo Perico">
+                <video src="https://github.com/khey25/legaspi_prelimfastapi/raw/refs/heads/main/gta/gtavideo/cayo.mp4" class="nav-video" loop playsinline></video>
+            </div>
+            
+            <!-- Card 2: Businesses -->
+            <div class="nav-card" id="card-businesses">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/nightclub.jpg?raw=true" class="nav-img" alt="Nightclub">
+                <video src="https://github.com/khey25/legaspi_prelimfastapi/raw/refs/heads/main/gta/gtavideo/nightclub.mp4" class="nav-video" loop playsinline></video>
+            </div>
+            
+            <!-- Card 3: Contact Missions -->
+            <div class="nav-card" id="card-contact">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/drug.jpg?raw=true" class="nav-img" alt="Drug Wars">
+                <video src="https://github.com/khey25/legaspi_prelimfastapi/raw/refs/heads/main/gta/gtavideo/drug.mp4" class="nav-video" loop playsinline></video>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal 1: Categories Overlay -->
+    <div id="categories-overlay" class="hidden">
+            
+            <div class="category-options">
+                
+                <!-- Category: Businesses -->
+                <div class="category-card" id="cat-businesses">
+                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/nightclub.jpg?raw=true" alt="Businesses" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Businesses</p>
+                </div>
+                
+                <!-- Category: Heists -->
+                <div class="category-card" id="cat-heists">
+                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true" alt="Heists" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Heists</p>
+                </div>
+                
+                <!-- Category: Contact -->
+                <div class="category-card" id="cat-contact">
+                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/drug.jpg?raw=true" alt="Contact" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Contact</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="menu.js"></script>
+</body>
+</html>

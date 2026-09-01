@@ -1,0 +1,393 @@
+/* General Page Setup */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: transparent; /* Dark theme */
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; /* Added from heists.css for consistency */
+}
+
+/* --- BACKGROUND SLIDER STYLES --- */
+#bg-slider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -5; /* Stays way behind all your cards */
+    background-color: #121212; /* Keeps the dark fallback vibe */
+    overflow: hidden; /* Prevents the 10% zoom from causing page scrollbars */
+}
+
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Hidden by default */
+    transform: scale(1); /* Normal size */
+    transition: opacity 1s ease-in-out, transform 3s linear; /* The magic animation */
+}
+
+.bg-image.active {
+    opacity: 0.35; /* Darkened slightly so your white text still pops */
+    transform: scale(1.05); /* Zooms in exactly 10% */
+}
+
+/* Header Text */
+h1 {
+    font-size: 3.5rem;
+    color: #4CAF50; /* GTA Money Green */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+/* Search Bar and Categories Button */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 60px;
+}
+
+#search-bar {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    width: 350px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    background-color: #222;
+    color: white;
+}
+
+#categories-btn {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#categories-btn:hover {
+    background-color: #45a049;
+}
+
+/* Main Content Area */
+.main-content {
+    width: 100%;
+    max-width: 1300px; /* Keeps it from stretching too wide on massive screens */
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #eeeeee;
+}
+
+/* Shared Container for both Main Menu Cards & Modal Categories */
+.category-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* --- MAIN MENU INTERACTIVE VIDEO CARDS (.nav-card) --- */
+.nav-card {
+    flex: 1; /* Ensures all 3 boxes take up equal horizontal space */
+    background-color: #222;
+    border: 2px solid #ffffff; 
+    height: 450px; /* Makes them large and cinematic */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative; /* Crucial so the image/video stay inside the box */
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+    
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    border-color: #18d628;
+    border-style: solid;
+}
+
+/* Image and Video Base Settings */
+.nav-img, .nav-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures they fill the box perfectly */
+    transition: opacity 0.3s ease; /* Smooth crossfade effect */
+}
+
+.nav-img {
+    z-index: 1; /* Sits in the back */
+}
+
+.nav-video {
+    z-index: 2; /* Sits in the front */
+    opacity: 0; /* Invisible by default until hovered */
+}
+
+/* --- SEARCH RESULTS GRID --- */
+.search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.result-card {
+    height: 160px;
+    background-color: #1e1e1e;
+    border: 2px solid #ffffff; /* Unified border styling */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 6px rgb(0, 0, 0); /* Unified shadow styling */
+    color: #aaa;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    opacity: 0; /* Start invisible */
+    animation: cascade-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    border-color: #18d628; /* Unified hover color */
+    border-style: solid;
+}
+
+/* --- MODAL OVERLAYS (Categories & Details) --- */
+#categories-overlay, #details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Unified Blur Background */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Ensures it works on Safari */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Keeps it on top of everything */
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Unified Modal Styles */
+.modal-content, .details-modal-content {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid #4CAF50;
+    position: relative;
+    text-align: center;
+}
+
+.modal-content {
+    width: 80%;
+    max-width: 800px; /* Aligned with heists.css */
+}
+
+.details-modal-content {
+    width: 90%;
+    max-width: 1000px;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid #777;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Categories Modal Specifics */
+.category-card {
+    flex: 1;
+    height: 350px;
+    background-color: #222;
+    border: 2px solid #ffffff; 
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgb(0, 0, 0); 
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4CAF50;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    position: relative; 
+    overflow: hidden;
+    animation: modal-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Added from heists.css for consistency */
+}
+
+/* --- MODAL POP-IN ANIMATION --- */
+@keyframes modal-pop {
+    0% {
+        transform: scale(0.8); /* Starts 20% smaller */
+        opacity: 0; /* Starts invisible */
+    }
+    100% {
+        transform: scale(1); /* Snaps to full size */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+/* --- STAGGERED CASCADE ANIMATION --- */
+@keyframes cascade-in {
+    0% {
+        opacity: 0;
+        top: 50px;
+    }
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+/* Hardcode the delays for the 3 main menu cards */
+#card-heists { animation-delay: 0.1s !important; }
+#card-businesses { animation-delay: 0.25s !important; }
+#card-contact { animation-delay: 0.4s !important; }
+
+.category-card:hover {
+    transform: scale(1.02);
+    border-color: #4CAF50;
+    border-style: solid;
+}
+
+/* Split-Screen Details Specifics */
+.details-split {
+    display: flex;
+    height: 600px; 
+}
+
+.details-image {
+    flex: 1.2; 
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1.5rem;
+    border-right: 2px solid #333;
+}
+
+.details-text {
+    flex: 1;
+    background-color: #000000; 
+    color: #ddd;
+    padding: 40px;
+    text-align: left;
+    overflow-y: auto; 
+}
+
+.details-text h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+
+/* Tablets & Mobile */
+@media (max-width: 900px) {
+    .category-options {
+        flex-direction: column; /* Stack the cards vertically */
+        align-items: center;
+    }
+
+    .category-card {
+        height: 150px; /* Reduced to match the 150px on other pages */
+        width: 100%;
+    }
+
+    .nav-card {
+        width: 100%;
+        max-width: 500px; /* Prevents stacked cards from looking awkwardly wide */
+        height: 300px; 
+    }
+
+    .details-split { 
+        flex-direction: column; 
+        height: 80vh; 
+    }
+    
+    .details-image { 
+        flex: 1; 
+        border-right: none; 
+        border-bottom: 2px solid #333; 
+        min-height: 250px;
+    }
+    
+    .details-text { 
+        flex: 1; 
+        padding: 25px; 
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 30px 15px;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem; /* Shrinks the giant header to fit */
+        margin-top: 20px;
+    }
+
+    .controls {
+        flex-direction: column; /* Stacks the search bar and button */
+        width: 100%;
+    }
+
+    #search-bar, #categories-btn {
+        width: 100%;
+        box-sizing: border-box; /* Ensures padding doesn't push the bar off-screen */
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+}
