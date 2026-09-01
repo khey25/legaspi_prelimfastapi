@@ -24,7 +24,7 @@ gta_database = {
                 "release_update": "Los Santos Drug Wars",
                 "release_year": 2022,
                 "location_options": 1,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/acid-lab.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/acid.jpg?raw=true"
             },
             {
                 "name": "Nightclub Management", 
@@ -42,7 +42,7 @@ gta_database = {
                 "release_update": "After Hours",
                 "release_year": 2018,
                 "location_options": 10,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/nightclub.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/nightclub.jpg?raw=true"
             },
             {
                 "name": "Gunrunning", 
@@ -60,7 +60,7 @@ gta_database = {
                 "release_update": "Gunrunning",
                 "release_year": 2017,
                 "location_options": 11,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/bunker.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/gunrunning.jpg?raw=true"
             }
         ],
         "Above Minimum Wage": [
@@ -80,7 +80,7 @@ gta_database = {
                 "release_update": "Further Adventures in Finance and Felony",
                 "release_year": 2016,
                 "location_options": 4,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/ceo-cargo.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/vehicle.jpg?raw=true"
             },
             {
                 "name": "Cocaine Lockup", 
@@ -98,7 +98,7 @@ gta_database = {
                 "release_update": "Bikers",
                 "release_year": 2016,
                 "location_options": 4,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/cocaine.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cocaine.jpg?raw=true"
             },
             {
                 "name": "Air Freight Cargo", 
@@ -116,7 +116,7 @@ gta_database = {
                 "release_update": "Smuggler's Run",
                 "release_year": 2017,
                 "location_options": 5,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/hangar.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/aircargo.jpg?raw=true"
             },
             {
                 "name": "Bail Enforcement", 
@@ -134,7 +134,7 @@ gta_database = {
                 "release_update": "Bottom Dollar Bounties",
                 "release_year": 2024,
                 "location_options": 5,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/bail-office.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/bail.jpg?raw=true"
             }
         ],
         "Going Bankrupt": [
@@ -154,7 +154,7 @@ gta_database = {
                 "release_update": "Bikers",
                 "release_year": 2016,
                 "location_options": 4,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/document-forgery.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/forgery.jpg?raw=true"
             },
             {
                 "name": "Weed Farm", 
@@ -172,7 +172,7 @@ gta_database = {
                 "release_update": "Bikers",
                 "release_year": 2016,
                 "location_options": 4,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/weed-farm.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/weed.jpg?raw=true"
             },
             {
                 "name": "Counterfeit Cash Factory", 
@@ -190,7 +190,7 @@ gta_database = {
                 "release_update": "Bikers",
                 "release_year": 2016,
                 "location_options": 4,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/counterfeit-cash.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cash.jpg?raw=true"
             }
         ]
     },
@@ -212,7 +212,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "The Cayo Perico Heist",
                 "release_year": 2020,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/cayo-perico.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true"
             },
             {
                 "name": "The Contract: Dr. Dre", 
@@ -230,7 +230,7 @@ gta_database = {
                 "elite_challenge": False,
                 "release_update": "The Contract",
                 "release_year": 2021,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/dr-dre.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/dre.jpg?raw=true"
             },
             {
                 "name": "The Diamond Casino Heist", 
@@ -248,7 +248,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "The Diamond Casino Heist",
                 "release_year": 2019,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/casino.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/casino.jpg?raw=true"
             }
         ],
         "Typical Bank Heist": [
@@ -268,7 +268,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "Heists Update",
                 "release_year": 2015,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/pacific-standard.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/pacific.jpg?raw=true"
             },
             {
                 "name": "The Doomsday Heist", 
@@ -286,7 +286,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "The Doomsday Heist",
                 "release_year": 2017,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/doomsday.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/doomsday.jpg?raw=true"
             },
             {
                 "name": "The Cluckin' Bell Farm Raid", 
@@ -304,7 +304,7 @@ gta_database = {
                 "elite_challenge": False,
                 "release_update": "The Cluckin' Bell Farm Raid",
                 "release_year": 2024,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/cluckin-bell.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cluckin.jpg?raw=true"
             }
         ],
         "What is this? A Convenience Store?": [
@@ -324,7 +324,7 @@ gta_database = {
                 "elite_challenge": True,
                 "release_update": "Heists Update",
                 "release_year": 2015,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/fleeca.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/fleeca.jpg?raw=true"
             },
             {
                 "name": "Auto Shop Contracts", 
@@ -342,7 +342,7 @@ gta_database = {
                 "elite_challenge": False,
                 "release_update": "Los Santos Tuners",
                 "release_year": 2021,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/auto-shop.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/autoshop.jpg?raw=true"
             },
             {
                 "name": "Salvage Yard Robberies", 
@@ -360,7 +360,7 @@ gta_database = {
                 "elite_challenge": False,
                 "release_update": "The Chop Shop",
                 "release_year": 2023,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/salvage-yard.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/salvage.jpg?raw=true"
             }
         ]
     },
@@ -382,7 +382,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "Los Santos Drug Wars",
                 "release_year": 2022,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/dax.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/drug.jpg?raw=true"
             },
             {
                 "name": "Payphone Hits", 
@@ -400,7 +400,7 @@ gta_database = {
                 "double_money_eligible": False,
                 "release_update": "The Contract",
                 "release_year": 2021,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/franklin.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/payphone.jpg?raw=true"
             }
         ],
         "Just for the Vibes": [
@@ -420,7 +420,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "Southern San Andreas Super Sport Series",
                 "release_year": 2018,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/martin.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/dispatch.jpg?raw=true"
             },
             {
                 "name": "Premium Deluxe Repo Work", 
@@ -438,7 +438,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "Arena War",
                 "release_year": 2019,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/simeon.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/repo.jpg?raw=true"
             },
             {
                 "name": "Last Play Missions", 
@@ -456,7 +456,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "Gerald's Last Play",
                 "release_year": 2020,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/gerald.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/last.jpg?raw=true"
             }
         ],
         "Why are you even doing this?": [
@@ -476,7 +476,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "The Criminal Enterprises",
                 "release_year": 2022,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/ulp.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/paper.jpg?raw=true"
             },
             {
                 "name": "Classic Grinds", 
@@ -494,7 +494,7 @@ gta_database = {
                 "double_money_eligible": True,
                 "release_update": "High Life Update",
                 "release_year": 2014,
-                "image_url": "https://raw.githubusercontent.com/YOUR_GITHUB/images/lester.jpg"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/classic.jpg?raw=true"
             }
         ]
     }
