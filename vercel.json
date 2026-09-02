@@ -10,9 +10,9 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/index.py"
-    }
+    { "source": "/api/(.*)", "destination": "/api/index.py" },
+    { "source": "/gta/businesses/(.*)", "destination": "/api/index.py" },
+    { "source": "/gta/contact/(.*)", "destination": "/api/index.py" },
+    { "source": "/gta/heists/(.*)", "destination": "/api/index.py" }
   ]
 }
