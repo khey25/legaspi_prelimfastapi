@@ -40,6 +40,16 @@ const overlay = document.getElementById('categories-overlay');
 const closeBtn = document.getElementById('close-modal-btn');
 const searchBar = document.getElementById('search-bar');
 
+const homeBtn = document.getElementById('home-btn');
+
+if (homeBtn) {
+    homeBtn.addEventListener('click', () => {
+        // The forward slash forces the browser to look at the root directory
+        window.location.href = '../menu.html'; 
+    });
+}
+
+
 // UPDATED: Now targeting our new class from the HTML
 const mainContainer = document.querySelector('.category-options'); 
 const pageTitle = document.querySelector('h2');

@@ -44,11 +44,12 @@ body {
 /* Header Text */
 h1 {
     font-size: 3.5rem;
-    color: #4CAF50; /* GTA Money Green */
+    color: #be70f1; /* GTA Money Green */
     margin-top: 40px;
     margin-bottom: 20px;
     text-align: center;
     letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Subtle shadow for better readability */
 }
 
 /* Search Bar and Categories Button */
@@ -70,10 +71,11 @@ h1 {
     color: white;
 }
 
-#categories-btn {
+/* Unified rules for BOTH buttons */
+#home-btn, #categories-btn {
     padding: 12px 25px;
     font-size: 1.2rem;
-    background-color: #4CAF50;
+    background-color: #be70f1; /* Your consistent neon purple */
     color: white;
     border: none;
     border-radius: 8px;
@@ -83,8 +85,8 @@ h1 {
     transition: background-color 0.2s;
 }
 
-#categories-btn:hover {
-    background-color: #45a049;
+#home-btn:hover, #categories-btn:hover {
+    background-color: #8a2be2;
 }
 
 /* Main Content Area */
@@ -112,7 +114,7 @@ h2 {
 .nav-card {
     flex: 1; /* Ensures all 3 boxes take up equal horizontal space */
     background-color: #222;
-    border: 2px solid #ffffff; 
+    border: 2px solid #be70f1; 
     height: 450px; /* Makes them large and cinematic */
     border-radius: 12px;
     box-shadow: 0 4px 6px rgb(0, 0, 0);
@@ -128,8 +130,20 @@ h2 {
 
 .nav-card:hover {
     transform: translateY(-5px);
-    border-color: #18d628;
     border-style: solid;
+    animation: wanted-siren 0.6s infinite;
+}
+
+/* --- WANTED LEVEL NEON HOVER --- */
+@keyframes wanted-siren {
+    0%, 100% { 
+        border-color: #ff0033; /* Neon Red */
+        box-shadow: 0 0 20px rgba(255, 0, 51, 0.9), inset 0 0 15px rgba(255, 0, 51, 0.4); 
+    }
+    50% { 
+        border-color: #00e5ff; /* Neon Cyan/Blue */
+        box-shadow: 0 0 20px rgb(4, 0, 255), inset 0 0 15px rgba(0, 229, 255, 0.4); 
+    }
 }
 
 /* Image and Video Base Settings */
@@ -163,7 +177,7 @@ h2 {
 .result-card {
     height: 160px;
     background-color: #1e1e1e;
-    border: 2px solid #ffffff; /* Unified border styling */
+    border: 2px solid #be70f1; /* Unified border styling */
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -179,8 +193,8 @@ h2 {
 
 .result-card:hover {
     transform: translateY(-5px);
-    border-color: #18d628; /* Unified hover color */
     border-style: solid;
+    animation: wanted-siren 0.6s infinite;
 }
 
 /* --- MODAL OVERLAYS (Categories & Details) --- */
@@ -208,9 +222,10 @@ h2 {
     background-color: #1a1a1a;
     padding: 40px;
     border-radius: 12px;
-    border: 2px solid #4CAF50;
+    border: 2px solid #be70f1;
     position: relative;
     text-align: center;
+    animation: modal-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Added from heists.css for consistency */
 }
 
 .modal-content {
@@ -243,7 +258,7 @@ h2 {
     flex: 1;
     height: 350px;
     background-color: #222;
-    border: 2px solid #ffffff; 
+    border: 2px solid #be70f1; 
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -256,7 +271,12 @@ h2 {
     transition: transform 0.2s, border-color 0.2s;
     position: relative; 
     overflow: hidden;
-    animation: modal-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Added from heists.css for consistency */
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-style: solid;
+    animation: wanted-siren 0.6s infinite;
 }
 
 /* --- MODAL POP-IN ANIMATION --- */
@@ -382,9 +402,10 @@ h2 {
         width: 100%;
     }
 
-    #search-bar, #categories-btn {
+    #search-bar, #categories-btn, #home-btn {
         width: 100%;
-        box-sizing: border-box; /* Ensures padding doesn't push the bar off-screen */
+        box-sizing: border-box;
+        margin-bottom: 5px; /* Ensures padding doesn't push the bar off-screen */
     }
     
     h2 {

@@ -32,6 +32,15 @@ if (bgSlider) {
     }, 3000);
 }
 
+const homeBtn = document.getElementById('home-btn');
+
+if (homeBtn) {
+    homeBtn.addEventListener('click', () => {
+        // The forward slash forces the browser to look at the root directory
+        window.location.href = '../menu.html'; 
+    });
+}
+
 // --- DOM Elements for Overlays ---
 const categoriesBtn = document.getElementById('categories-btn');
 const categoriesOverlay = document.getElementById('categories-overlay');
