@@ -1,4 +1,4 @@
-const API_URL = "https://legaspi-prelimfastapi.vercel.app";
+const API_URL = "";
 
 // --- BACKGROUND SLIDER LOGIC ---
 const backgrounds = [
