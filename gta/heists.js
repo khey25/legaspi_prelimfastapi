@@ -1,5 +1,5 @@
 // 1. YOUR VERCEL API URL (Trailing slash removed!)
-const API_URL = "https://legaspi-prelimfastapi.vercel.app"; 
+const API_URL = ""; 
 
 // --- BACKGROUND SLIDER LOGIC ---
 const backgrounds = [
