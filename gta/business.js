@@ -1,5 +1,5 @@
 // 1. YOUR VERCEL API URL
-const API_URL = ""; 
+const API_URL = "https://the-hustle-hub.vercel.app/"; 
 
 // --- BACKGROUND SLIDER LOGIC ---
 const backgrounds = [
