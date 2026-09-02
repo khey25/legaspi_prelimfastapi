@@ -3,75 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA Hustle Methods</title>
+    <title>The Hustle Hub</title>
     <link rel="stylesheet" href="menu.css">
 </head>
 <body>
-<div id="bg-slider"></div>
+    <!-- Modern Neon Pulsating Background -->
+    <div class="neon-bg">
+        <div class="pulsating-circle"></div>
+    </div>
+    
     <!-- Header Section -->
     <header>
-        <h1>HUSTLE HUB</h1>
+        <h1>THE HUSTLE HUB</h1>
         
         <div class="controls">
-            <input type="text" id="search-bar" placeholder="Search for Games...">
+            <!-- Notice we removed the extra buttons here! -->
+            <input type="text" id="search-bar" placeholder="Search for Games (e.g. GTA, Farming...)">
         </div>
     </header>
 
     <!-- Main Content Section -->
     <main class="main-content">
-        <h2>Top money hustling methods</h2>
+        <h2>SELECT YOUR GRIND</h2>
         
-        <!-- Replaced templates-container with category-options for flexbox styling -->
         <div class="category-options">
             
-            <!-- Card 1: Heists -->
-            <div class="nav-card" id="card-heists">
-                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true" class="nav-img" alt="Cayo Perico">
-                <video src="https://github.com/khey25/legaspi_prelimfastapi/raw/refs/heads/main/gta/gtavideo/cayo.mp4" class="nav-video" loop playsinline></video>
+            <!-- Game 1: GTA Online -->
+            <div class="nav-card" id="nav-gta" data-tags="gta, grand theft auto, heists, businesses, cayo perico, los santos">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/gtaonline.jpg?raw=true" class="nav-img" alt="GTA Online">
+                <h2 class="card-title">GTA ONLINE</h2>
             </div>
             
-            <!-- Card 2: Businesses -->
-            <div class="nav-card" id="card-businesses">
-                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/nightclub.jpg?raw=true" class="nav-img" alt="Nightclub">
-                <video src="https://github.com/khey25/legaspi_prelimfastapi/raw/refs/heads/main/gta/gtavideo/nightclub.mp4" class="nav-video" loop playsinline></video>
+            <!-- Game 2: Stardew Valley -->
+            <div class="nav-card" id="nav-stardew" data-tags="stardew valley, farming, crops, artisan, starfruit, pelican town">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="Stardew Valley">
+                <h2 class="card-title">STARDEW VALLEY</h2>
             </div>
             
-            <!-- Card 3: Contact Missions -->
-            <div class="nav-card" id="card-contact">
-                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/drug.jpg?raw=true" class="nav-img" alt="Drug Wars">
-                <video src="https://github.com/khey25/legaspi_prelimfastapi/raw/refs/heads/main/gta/gtavideo/drug.mp4" class="nav-video" loop playsinline></video>
+            <!-- Game 3: Warframe -->
+            <div class="nav-card" id="nav-warframe" data-tags="warframe, platinum, relics, farming, space ninjas, void">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="Warframe">
+                <h2 class="card-title">WARFRAME</h2>
             </div>
 
+            <!-- Game 4: Minecraft -->
+            <div class="nav-card" id="nav-minecraft" data-tags="minecraft, survival, redstone, automated farms, diamonds, crafting">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="Minecraft">
+                <h2 class="card-title">MINECRAFT</h2>
+            </div>
+
+            <!-- Game 5: Heartopia -->
+            <div class="nav-card" id="nav-heartopia" data-tags="heartopia, cozy, life sim, crafting, building, multiplayer">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="Heartopia">
+                <h2 class="card-title">HEARTOPIA</h2>
+            </div>
+
+            <!-- Game 6: Cyberpunk 2077 -->
+            <div class="nav-card" id="nav-cyberpunk" data-tags="cyberpunk 2077, night city, edgerunners, eddies, gigs, rpg">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="Cyberpunk 2077">
+                <h2 class="card-title">CYBERPUNK 2077</h2>
+            </div>
+
+            <!-- Game 7: Old School RuneScape -->
+            <div class="nav-card" id="nav-osrs" data-tags="osrs, runescape, gold farming, skilling, flipping, grand exchange">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="OSRS">
+                <h2 class="card-title">RUNESCAPE</h2>
+            </div>
+
+            <!-- Game 8: Path of Exile -->
+            <div class="nav-card" id="nav-poe" data-tags="poe, path of exile, currency, mapping, crafting, chaos orbs">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="Path of Exile">
+                <h2 class="card-title">PATH OF EXILE</h2>
+            </div>
+
+            <!-- Game 9: Destiny 2 -->
+            <div class="nav-card" id="nav-destiny" data-tags="destiny 2, glimmer, raids, loot, exotic farming, vanguard">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="Destiny 2">
+                <h2 class="card-title">DESTINY 2</h2>
+            </div>
+            
+            <!-- Game 10: World of Warcraft -->
+            <div class="nav-card" id="nav-wow" data-tags="wow, world of warcraft, gold farming, auction house, raids, professions">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="World of Warcraft">
+                <h2 class="card-title">WORLD OF WARCRAFT</h2>
+            </div>
+
+            <!-- Game 11: Animal Crossing -->
+            <div class="nav-card" id="nav-animalcrossing" data-tags="animal crossing, bells, turnips, stalk market, island, fishing">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="Animal Crossing">
+                <h2 class="card-title">ANIMAL CROSSING</h2>
+            </div>
+
+            <!-- Game 12: Black Desert Online -->
+            <div class="nav-card" id="nav-bdo" data-tags="bdo, black desert online, silver, lifeskilling, grinding, nodes">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="Black Desert Online">
+                <h2 class="card-title">BLACK DESERT</h2>
+            </div>
+
+            <!-- Game 13: Elite Dangerous -->
+            <div class="nav-card" id="nav-elite" data-tags="elite dangerous, credits, mining, trading, space, bounty hunting">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="Elite Dangerous">
+                <h2 class="card-title">ELITE DANGEROUS</h2>
+            </div>
+
+            <!-- Game 14: No Man's Sky -->
+            <div class="nav-card" id="nav-nms" data-tags="no mans sky, units, nanites, farming, space, exploration">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/.jpg?raw=true" class="nav-img" alt="No Man's Sky">
+                <h2 class="card-title">NO MAN'S SKY</h2>
+            </div>
+            
         </div>
     </main>
-
-    <!-- Modal 1: Categories Overlay -->
-    <div id="categories-overlay" class="hidden">
-            
-            <div class="category-options">
-                
-                <!-- Category: Businesses -->
-                <div class="category-card" id="cat-businesses">
-                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/nightclub.jpg?raw=true" alt="Businesses" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
-                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Businesses</p>
-                </div>
-                
-                <!-- Category: Heists -->
-                <div class="category-card" id="cat-heists">
-                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true" alt="Heists" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
-                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Heists</p>
-                </div>
-                
-                <!-- Category: Contact -->
-                <div class="category-card" id="cat-contact">
-                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/drug.jpg?raw=true" alt="Contact" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
-                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Contact</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
 
     <script src="menu.js"></script>
 </body>
