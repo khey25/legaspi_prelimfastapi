@@ -298,7 +298,7 @@ h2 {
 }
 .details-text {
     flex: 1;
-    background-color: #000000; /* True black background requested */
+    background-color: #000000;
     color: #ddd;
     padding: 40px;
     text-align: left;

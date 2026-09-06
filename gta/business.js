@@ -50,7 +50,6 @@ const closeDetailsBtn = document.getElementById('close-details-btn');
 const detailTitle = document.getElementById('detail-title');
 const detailDescription = document.querySelector('.details-text p'); 
 
-// NEW: Grab the left-side image container so we can inject the picture
 const detailImageContainer = document.querySelector('.details-image'); 
 
 // --- Categories Modal Logic ---

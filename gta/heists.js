@@ -36,7 +36,6 @@ const homeBtn = document.getElementById('home-btn');
 
 if (homeBtn) {
     homeBtn.addEventListener('click', () => {
-        // The forward slash forces the browser to look at the root directory
         window.location.href = '../index.html'; 
     });
 }
@@ -89,7 +88,7 @@ async function loadHeists() {
 // --- CARD BUILDER & CLICK LOGIC ---
 function buildCards(heistList, gridId) {
     const grid = document.getElementById(gridId);
-    if (!grid || !heistList) return; // Added safety check
+    if (!grid || !heistList) return;
 
     heistList.forEach(heist => {
         const card = document.createElement('div');
