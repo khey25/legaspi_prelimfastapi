@@ -348,3 +348,20 @@ h2 {
     /* Replaced .nav-card with .category-card */
     .category-card { height: 150px; width: 100%; } 
 }
+
+@media (max-width: 600px) {
+    h1 { 
+        font-size: 1.8rem; /* Shrinks the giant header to fit */
+    } 
+    .controls { 
+        flex-direction: column; /* Stacks the search bar and buttons vertically */
+        width: 100%; 
+    }
+    
+    /* We are targeting all three elements here so they match your nice stacked layout */
+    #search-bar, #categories-btn, #home-btn { 
+        width: 100%; 
+        box-sizing: border-box; 
+        margin-bottom: 5px; /* Adds a little breathing room between the stacked buttons */
+    }
+}
