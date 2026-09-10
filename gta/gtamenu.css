@@ -349,7 +349,6 @@ h2 {
 
 /* --- RESPONSIVE DESIGN (Media Queries) --- */
 
-/* Tablets & Mobile */
 @media (max-width: 900px) {
     .category-options {
         flex-direction: column; /* Stack the cards vertically */
@@ -359,12 +358,16 @@ h2 {
     .category-card {
         height: 150px; /* Reduced to match the 150px on other pages */
         width: 100%;
+        flex: none; /* Stops the card from collapsing */
+        min-height: 150px; /* Hard-locks the height */
     }
 
     .nav-card {
         width: 100%;
         max-width: 500px; /* Prevents stacked cards from looking awkwardly wide */
         height: 300px; 
+        flex: none; /* Stops the card from collapsing */
+        min-height: 300px; /* Hard-locks the height */
     }
 
     .details-split { 
