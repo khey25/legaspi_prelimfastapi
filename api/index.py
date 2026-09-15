@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 # Import your GTA routes
 from api.gta import router as gta_router
+from api.stardew import router as stardew_router
 
 app = FastAPI()
 
@@ -18,6 +19,7 @@ app.add_middleware(
 # --- PLUG IN THE ROUTERS ---
 # This automatically slaps "/gta" in front of every route in gta.py!
 app.include_router(gta_router, prefix="/gta", tags=["GTA"])
+app.include_router(stardew_router, prefix="/stardew", tags=["Stardew Valley"])
 
 # (When you build Warframe later, you will add it right here!)
 # from api.warframe import router as warframe_router
