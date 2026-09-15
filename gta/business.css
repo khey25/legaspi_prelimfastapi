@@ -314,16 +314,21 @@ h2 {
 /* --- RESPONSIVE DESIGN (Media Queries) --- */
 @media (max-width: 900px) {
     .details-split {
-        flex-direction: column; /* Stack image on top, text on bottom */
-        height: 80vh; /* Responsive height */
+        flex-direction: column; 
+        height: 80vh; 
     }
     .details-image { flex: 1; border-right: none; border-bottom: 2px solid #333; min-height: 250px;}
     .details-text { flex: 1; padding: 25px; }
     
     .category-options { flex-direction: column; }
     
-    /* Replaced .nav-card with .category-card */
-    .category-card { height: 150px; width: 100%; } 
+    /* ADDED THE FLEX LOCK HERE */
+    .category-card { 
+        height: 150px; 
+        width: 100%; 
+        flex: none; /* Stops the card from collapsing */
+        min-height: 150px; /* Hard-locks the height */
+    } 
 }
 
 @media (max-width: 600px) {
