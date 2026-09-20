@@ -348,7 +348,7 @@ stardew_database = {
                 "greenhouse_compatible": False,
                 "daily_maintenance": True,
                 "artisan_buff_eligible": False,
-                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/dinoegg.jpg?raw=true"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/dinosauregg.jpg?raw=true"
             },
             {
                 "name": "Large Goat Milk", 
@@ -366,7 +366,7 @@ stardew_database = {
                 "greenhouse_compatible": False,
                 "daily_maintenance": True,
                 "artisan_buff_eligible": False,
-                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/goatmilk.jpg?raw=true"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/largegoatmilk.jpg?raw=true"
             }
         ],
         "Literally Just For Fun": [
