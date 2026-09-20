@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stardew Valley Crops</title>
+    <link rel="stylesheet" href="crops.css">
+</head>
+<body>
+    <!-- VIDEO BACKGROUND -->
+    <video id="bg-video" autoplay loop muted playsinline src="https://github.com/khey25/legaspi_prelimfastapi/raw/refs/heads/main/stardew/stardewvideo/stardewfarm.mp4"></video>
+    
+    <!-- Header Section -->
+    <header>
+        <h1>Get Your Hands Dirty in the Dirt</h1>
+        <div class="controls">
+            <input type="text" id="search-bar" placeholder="Search crops...">
+            <button id="categories-btn">Categories</button>
+            <button id="home-btn">Home</button>
+        </div>
+    </header>
 
+    <!-- Main Content: Scrollable Body -->
+    <main class="main-content"> 
+        
+        <!-- Rank 1 -->
+        <section class="rank-section">
+            <h2 class="rank-green">Joja-Level Profits</h2>
+            <div class="crop-grid" id="grid-joja"></div>
+        </section>
+
+        <!-- Rank 2 -->
+        <section class="rank-section">
+            <h2 class="rank-yellow">Honest Honest Work</h2>
+            <div class="crop-grid" id="grid-honest"></div>
+        </section>
+
+        <!-- Rank 3 -->
+        <section class="rank-section">
+            <h2 class="rank-red">Literally Just For Fun</h2>
+            <div class="crop-grid" id="grid-fun"></div>
+        </section>
+
+    </main>
+
+    <!-- Modal 1: Categories Navigation -->
+    <div id="categories-overlay" class="hidden">
+        <div class="modal-content">
+            <button id="close-categories-btn" class="close-btn">X</button>
+            <h2>SELECT A PATH</h2>
+            <div class="category-options">
+                
+                <!-- Category: Home (Stardew Menu) -->
+                <div class="category-card" id="nav-home">
+                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/.jpg?raw=true" alt="Home" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Menu</p>
+                </div>
+                
+                <!-- Category: Artisan Goods -->
+                <div class="category-card" id="nav-artisan">
+                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/.jpg?raw=true" alt="Artisan" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Artisan</p>
+                </div>
+                
+                <!-- Category: Animal Products -->
+                <div class="category-card" id="nav-animals">
+                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/.jpg?raw=true" alt="Animals" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Animals</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Split-Screen Crop Details -->
+    <div id="details-overlay" class="hidden">
+        <div class="details-modal-content">
+            <button id="close-details-btn" class="close-btn">X</button>
+            <div class="details-split">
+                <!-- Left: Image -->
+                <div class="details-image">
+                    <p>Enlarged Image Placeholder</p>
+                </div>
+                <!-- Right: Black Info Panel -->
+                <div class="details-text">
+                    <h3 id="detail-title">Crop Name</h3>
+                    <p>Details loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="crops.js"></script>
+</body>
+</html>

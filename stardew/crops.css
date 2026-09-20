@@ -1,0 +1,287 @@
+/* Update your body background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000; /* Set to black to prevent white bleed-through */
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; 
+}
+
+/* Add the new video background rule */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; 
+    z-index: -5; 
+    opacity: 0.4; /* Adjust this to make the video brighter or darker */
+    background-color: #121212; 
+}
+
+
+
+/* Header Text */
+h1 {
+    font-size: 3rem;
+    color: #be70f1;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+#search-bar {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    width: 350px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    background-color: #222;
+    color: white;
+}
+
+#home-btn, #categories-btn {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #be70f1; 
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#home-btn:hover, #categories-btn:hover {
+    background-color: #8a2be2;
+    border-color: #f1b50d; /* Kept the Stardew Gold Glow */
+    box-shadow: 0 0 20px rgba(255, 234, 47, 0.712), inset 0 0 10px rgba(255, 235, 59, 0.3)
+}
+
+/* Main Content Area */
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.rank-section {
+    margin-bottom: 50px;
+}
+
+/* Ranked Headers */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.rank-green { color: #4CAF50; animation: pulse-green 3s infinite ease-in-out; }
+.rank-yellow { color: #FFEB3B; animation: pulse-yellow 3s infinite ease-in-out; animation-delay: 0.5s; }
+.rank-red { color: #F44336; animation: pulse-red 3s infinite ease-in-out; animation-delay: 1s; }
+
+/* --- NEON PULSE ANIMATIONS --- */
+@keyframes pulse-green {
+    0% { text-shadow: 0 0 0px rgba(76, 175, 80, 0); }
+    50% { text-shadow: 0 0 15px rgba(76, 175, 80, 0.9); }
+    100% { text-shadow: 0 0 0px rgba(76, 175, 80, 0); }
+}
+
+@keyframes pulse-yellow {
+    0% { text-shadow: 0 0 0px rgba(255, 235, 59, 0); }
+    50% { text-shadow: 0 0 15px rgba(255, 235, 59, 0.9); }
+    100% { text-shadow: 0 0 0px rgba(255, 235, 59, 0); }
+}
+
+@keyframes pulse-red {
+    0% { text-shadow: 0 0 0px rgba(244, 67, 54, 0); }
+    50% { text-shadow: 0 0 15px rgba(244, 67, 54, 0.9); }
+    100% { text-shadow: 0 0 0px rgba(244, 67, 54, 0); }
+}
+
+/* Crop Grid */
+.crop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 350px)); 
+    justify-content: center; 
+    gap: 20px;
+}
+
+.crop-card {
+    height: 160px;
+    background-color: #1e1e1e;
+    border: 2px solid #be70f1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    color: #aaa;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+/* --- THE CUSTOM STARDEW GOLD HOVER --- */
+.crop-card:hover {
+    transform: translateY(-5px);
+    border-style: solid;
+    color: #f1b50d;
+    border-color: #f1b50d;
+    box-shadow: 0 0 20px rgba(255, 234, 47, 0.712), inset 0 0 10px rgba(255, 235, 59, 0.3);
+}
+
+/* --- MODAL OVERLAYS (Categories & Details) --- */
+#categories-overlay, #details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden { display: none !important; }
+
+.modal-content, .details-modal-content {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid #be70f1;
+    position: relative;
+    text-align: center;
+    animation: modal-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes modal-pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-content { width: 80%; max-width: 800px; }
+.details-modal-content { width: 90%; max-width: 1000px; padding: 0; overflow: hidden; border: 2px solid #777;}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Categories Modal Specifics */
+.category-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.category-card {
+    flex: 1;
+    height: 350px;
+    background-color: #222;
+    border: 2px solid #be70f1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    font-size: 2rem;
+    font-weight: bold;
+    color: #be70f1;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s, color 0.2s;
+    position: relative; 
+    overflow: hidden;
+}
+
+/* --- THE CUSTOM STARDEW GOLD HOVER (MODAL) --- */
+.category-card:hover {
+    transform: scale(1.02);
+    border-style: solid;
+    color: #f1b50d;
+    border-color: #f1b50d;
+    box-shadow: 0 0 20px rgba(255, 234, 47, 0.712), inset 0 0 10px rgba(255, 235, 59, 0.3);
+}
+
+/* Split-Screen Details Specifics */
+.details-split {
+    display: flex;
+    height: 600px; 
+}
+.details-image {
+    flex: 1.2; 
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1.5rem;
+    border-right: 2px solid #333;
+}
+.details-text {
+    flex: 1;
+    background-color: #000000; 
+    color: #ddd;
+    padding: 40px;
+    text-align: left;
+    overflow-y: auto; 
+}
+.details-text h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+@media (max-width: 900px) {
+    .details-split {
+        flex-direction: column; 
+        height: 80vh; 
+    }
+    .details-image { flex: 1; border-right: none; border-bottom: 2px solid #333; min-height: 250px;}
+    .details-text { flex: 1; padding: 25px; }
+    
+    .category-options { flex-direction: column; }
+    
+    .category-card { 
+        height: 150px; 
+        width: 100%; 
+        flex: none; 
+        min-height: 150px; 
+    } 
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 1.8rem; } 
+    .controls { flex-direction: column; width: 100%; }
+    #search-bar, #categories-btn, #home-btn { width: 100%; box-sizing: border-box; margin-bottom: 5px; }
+}
