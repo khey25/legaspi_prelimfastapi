@@ -1,0 +1,194 @@
+/* General Page Setup */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: transparent; 
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; 
+}
+
+/* --- BACKGROUND SLIDER STYLES --- */
+/* --- NEON PULSATING BACKGROUND STYLES --- */
+.neon-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -5; 
+    background-color: #0b0310; /* A very deep, almost blackish-purple */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.pulsating-circle {
+    /* Creates a blurred, glowing orb using your theme color */
+    width: 50vw; 
+    height: 50vw;
+    max-width: 800px;
+    max-height: 800px;
+    background: radial-gradient(circle, rgba(190, 112, 241, 0.25) 0%, rgba(190, 112, 241, 0) 70%);
+    border-radius: 50%;
+    animation: pulse-glow 4s infinite alternate ease-in-out;
+}
+
+/* --- THE BREATHING ANIMATION --- */
+@keyframes pulse-glow {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Header Text */
+h1 {
+    font-size: 3.5rem;
+    color: #be70f1; /* Main Hub Theme Color */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #eeeeee;
+    text-align: center;
+}
+
+/* Search Bar */
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+#search-bar {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    width: 450px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    background-color: #222;
+    color: white;
+}
+
+#search-bar:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
+/* Main Content Area */
+.main-content {
+    width: 100%;
+    max-width: 1300px; 
+    text-align: center;
+}
+
+/* Update this specific block in menu.css */
+.category-options {
+    display: grid;
+    /* This tells the grid to auto-fit as many 350px cards as possible per row */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    padding-bottom: 60px; /* Gives nice breathing room at the bottom of the scroll */
+}
+
+/* --- MAIN MENU GAME CARDS (.nav-card) --- */
+.nav-card {
+    flex: 1; 
+    background-color: #222;
+    border: 2px solid #be70f1; 
+    height: 450px; 
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative; 
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    border-style: solid;
+    /* Clean, non-flashing purple glow for the main hub */
+    box-shadow: 0 0 20px rgba(190, 112, 241, 0.8), inset 0 0 15px rgba(190, 112, 241, 0.4); 
+}
+
+/* Image Base Settings */
+.nav-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    opacity: 0.6; /* Darkened slightly to make text readable */
+    transition: opacity 0.3s ease; 
+}
+
+.nav-card:hover .nav-img {
+    opacity: 0.8; /* Brightens up on hover */
+}
+
+/* Text Overlay on Cards */
+.card-title {
+    position: relative;
+    z-index: 2;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 8px #000;
+    pointer-events: none; /* Lets clicks pass through to the card */
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 900px) {
+    .category-options {
+        display: flex; /* THIS WAS MISSING! Swaps Grid for Flexbox */
+        flex-direction: column; 
+        align-items: center;
+        width: 100%; /* Keeps it strictly inside the screen */
+    }
+    .nav-card {
+        width: 100%;
+        max-width: 500px; 
+        height: 300px; 
+        flex: none; /* Stops it from squishing */
+        min-height: 300px; /* Locks the height */
+        box-sizing: border-box; /* Keeps borders from pushing it off-screen */
+    }
+}
+
+@media (max-width: 600px) {
+    h1 { 
+        font-size: 2.2rem; 
+        margin-top: 20px; 
+    }
+    #search-bar { 
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+    .nav-card {
+        /* Optional: Shrinks the cards slightly on very small phones so they don't dominate the screen */
+        height: 250px; 
+        min-height: 250px;
+    }
+}
