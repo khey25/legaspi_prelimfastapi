@@ -14,6 +14,7 @@
     { "source": "/openapi.json", "destination": "/api/index.py" },
     { "source": "/redoc", "destination": "/api/index.py" },
     { "source": "/gta/(.*)", "destination": "/api/index.py" },
+    { "source": "/stardew/(.*)", "destination": "/api/index.py" }, 
     { "source": "/api/(.*)", "destination": "/api/index.py" }
   ]
 }
