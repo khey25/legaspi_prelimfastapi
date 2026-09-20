@@ -98,7 +98,7 @@ stardew_database = {
                 "greenhouse_compatible": True,
                 "daily_maintenance": True,
                 "artisan_buff_eligible": False,
-                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/cranberry.jpg?raw=true"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/cranberries.jpg?raw=true"
             },
             {
                 "name": "Strawberries", 
