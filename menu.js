@@ -6,7 +6,7 @@ document.getElementById('nav-gta').addEventListener('click', () => {
 });
 
 document.getElementById('nav-stardew').addEventListener('click', () => {
-    window.location.href = 'stardewmenu.html';
+    window.location.href = 'stardew/stardewmenu.html';
 });
 
 document.getElementById('nav-warframe').addEventListener('click', () => {
