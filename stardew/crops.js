@@ -1,4 +1,4 @@
-const API_URL = "https://the-hustle-hub.vercel.app/"; 
+const API_URL = "https://the-hustle-hub.vercel.app"; 
 
 const homeBtn = document.getElementById('home-btn');
 
