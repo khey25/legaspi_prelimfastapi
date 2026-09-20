@@ -194,7 +194,7 @@ stardew_database = {
                 "greenhouse_compatible": False,
                 "daily_maintenance": False,
                 "artisan_buff_eligible": True,
-                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/ancientwine.jpg?raw=true"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/ancientfruitwine.jpg?raw=true"
             },
             {
                 "name": "Pale Ale", 
@@ -270,7 +270,7 @@ stardew_database = {
                 "greenhouse_compatible": False,
                 "daily_maintenance": False,
                 "artisan_buff_eligible": True,
-                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/mayo.jpg?raw=true"
+                "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/mayonnaise.jpg?raw=true"
             },
             {
                 "name": "Apple Jelly", 
