@@ -1,8 +1,9 @@
-const API_URL = "https://the-hustle-hub.vercel.app/"; 
+const API_URL = "https://the-hustle-hub.vercel.app"; 
 
 const homeBtn = document.getElementById('home-btn');
 
 if (homeBtn) {
+    // Specifically targets the main hub index.html as requested
     homeBtn.addEventListener('click', () => {
         window.location.href = '../index.html'; 
     });
@@ -26,20 +27,23 @@ categoriesBtn.addEventListener('click', () => {
 closeCategoriesBtn.addEventListener('click', () => {
     categoriesOverlay.classList.add('hidden');
 });
-document.getElementById('nav-home').addEventListener('click', () => {
+
+// Category Modal Routing
+document.getElementById('nav-menu').addEventListener('click', () => {
     window.location.href = 'stardewmenu.html';
 });
-document.getElementById('nav-artisan').addEventListener('click', () => {
-    window.location.href = 'artisan.html'; 
+document.getElementById('nav-crops').addEventListener('click', () => {
+    window.location.href = 'crops.html'; 
 });
-document.getElementById('nav-animals').addEventListener('click', () => {
-    window.location.href = 'animals.html';
+document.getElementById('nav-artisan').addEventListener('click', () => {
+    window.location.href = 'artisan.html';
 });
 
 // --- API FETCH LOGIC ---
-async function loadCrops() {
+async function loadAnimalProducts() {
     try {
-        const response = await fetch(`${API_URL}/stardew/crops`);
+        // Target the animal_products endpoint
+        const response = await fetch(`${API_URL}/stardew/animal_products`);
         const data = await response.json(); 
 
         buildCards(data["Joja-Level Profits"], "grid-joja");
@@ -52,29 +56,30 @@ async function loadCrops() {
 }
 
 // --- CARD BUILDER & CLICK LOGIC ---
-function buildCards(cropList, gridId) {
+function buildCards(itemList, gridId) {
     const grid = document.getElementById(gridId);
-    if (!grid || !cropList) return;
+    if (!grid || !itemList) return;
 
-    cropList.forEach(crop => {
+    itemList.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'crop-card';
+        // Matches the CSS class for animal cards
+        card.className = 'animal-card';
         
         card.style.position = "relative";
         card.style.overflow = "hidden";
         card.style.cursor = "pointer";
 
         card.innerHTML = `
-            <img src="${crop.image_url}" alt="${crop.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
-            <p style="position: relative; z-index: 1; margin: 0; font-weight: bold; text-shadow: 2px 2px 4px #000; pointer-events: none;">${crop.name}</p>
+            <img src="${item.image_url}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+            <p style="position: relative; z-index: 1; margin: 0; font-weight: bold; text-shadow: 2px 2px 4px #000; pointer-events: none;">${item.name}</p>
         `;
 
         card.addEventListener('click', () => {
-            detailTitle.innerText = crop.name;
-            detailImageContainer.innerHTML = `<img src="${crop.image_url}" alt="${crop.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px 0 0 8px;">`;
+            detailTitle.innerText = item.name;
+            detailImageContainer.innerHTML = `<img src="${item.image_url}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px 0 0 8px;">`;
             
             let detailsHTML = "";
-            for (const [key, value] of Object.entries(crop)) {
+            for (const [key, value] of Object.entries(item)) {
                 if (key === 'name' || key === 'image_url') continue;
                 
                 let formattedKey = key.split('_').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
@@ -103,7 +108,7 @@ searchBar.addEventListener('input', async (e) => {
     const searchTerm = e.target.value.trim();
     
     try {
-        const response = await fetch(`${API_URL}/stardew/crops/search?q=${searchTerm}`);
+        const response = await fetch(`${API_URL}/stardew/animal_products/search?q=${searchTerm}`);
         const data = await response.json();
 
         document.getElementById("grid-joja").innerHTML = "";
@@ -129,4 +134,4 @@ window.addEventListener('click', (event) => {
 });
 
 // TRIGGER INITIAL LOAD
-loadCrops();
+loadAnimalProducts();

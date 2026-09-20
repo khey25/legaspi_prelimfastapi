@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stardew Valley Artisan Goods</title>
-    <link rel="stylesheet" href="artisan.css">
+    <title>Stardew Valley Animal Products</title>
+    <link rel="stylesheet" href="animals.css">
 </head>
 <body>
     <!-- VIDEO BACKGROUND -->
@@ -12,9 +12,9 @@
     
     <!-- Header Section -->
     <header>
-        <h1>Kegs, Jars, and Artisan Gold</h1>
+        <h1>Barns, Coops, and Livestock</h1>
         <div class="controls">
-            <input type="text" id="search-bar" placeholder="Search artisan goods...">
+            <input type="text" id="search-bar" placeholder="Search animal products...">
             <button id="categories-btn">Categories</button>
             <button id="home-btn">Home</button>
         </div>
@@ -26,19 +26,19 @@
         <!-- Rank 1 -->
         <section class="rank-section">
             <h2 class="rank-green">Joja-Level Profits</h2>
-            <div class="artisan-grid" id="grid-joja"></div>
+            <div class="animal-grid" id="grid-joja"></div>
         </section>
 
         <!-- Rank 2 -->
         <section class="rank-section">
             <h2 class="rank-yellow">Honest Honest Work</h2>
-            <div class="artisan-grid" id="grid-honest"></div>
+            <div class="animal-grid" id="grid-honest"></div>
         </section>
 
         <!-- Rank 3 -->
         <section class="rank-section">
             <h2 class="rank-red">Literally Just For Fun</h2>
-            <div class="artisan-grid" id="grid-fun"></div>
+            <div class="animal-grid" id="grid-fun"></div>
         </section>
 
     </main>
@@ -50,9 +50,9 @@
             <h2>SELECT A PATH</h2>
             <div class="category-options">
                 
-                <!-- Category: Home (Stardew Menu) -->
-                <div class="category-card" id="nav-home">
-                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/home.jpg?raw=true" alt="Home" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+                <!-- Category: Menu (Stardew Menu) -->
+                <div class="category-card" id="nav-menu">
+                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/home.jpg?raw=true" alt="Menu" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
                     <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Home</p>
                 </div>
                 
@@ -62,10 +62,10 @@
                     <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Crops</p>
                 </div>
                 
-                <!-- Category: Animal Products -->
-                <div class="category-card" id="nav-animals">
-                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/truffle.jpg?raw=true" alt="Animals" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
-                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Animals</p>
+                <!-- Category: Artisan Goods -->
+                <div class="category-card" id="nav-artisan">
+                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/starfruitwine.jpg?raw=true" alt="Artisan" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Artisan</p>
                 </div>
                 
             </div>
@@ -90,6 +90,6 @@
         </div>
     </div>
 
-    <script src="artisan.js"></script>
+    <script src="animals.js"></script>
 </body>
 </html>
