@@ -103,6 +103,6 @@ games_database = [
     }
 ]
 
-@router.get("")
+@router.get("/")
 def get_all_games():
     return games_database
