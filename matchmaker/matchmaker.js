@@ -2,7 +2,7 @@ const API_URL = "https://the-hustle-hub.vercel.app";
 
 // Navigation
 document.getElementById('home-btn').addEventListener('click', () => {
-    window.location.href = './index.html'; 
+    window.location.href = '../index.html'; 
 });
 
 // DOM Elements
