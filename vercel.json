@@ -10,14 +10,12 @@
     }
   ],
   "rewrites": [
-    { "source": "/games", "destination": "/api/index.py" }, 
     { "source": "/games/(.*)", "destination": "/api/index.py" },
-    { "source": "/gta/(.*)", "destination": "/api/index.py" },
-    { "source": "/stardew/(.*)", "destination": "/api/index.py" },
-    
     { "source": "/docs", "destination": "/api/index.py" },
     { "source": "/openapi.json", "destination": "/api/index.py" },
-    { "source": "/redoc", "destination": "/api/index.py" }, 
+    { "source": "/redoc", "destination": "/api/index.py" },
+    { "source": "/gta/(.*)", "destination": "/api/index.py" },
+    { "source": "/stardew/(.*)", "destination": "/api/index.py" }, 
     { "source": "/api/(.*)", "destination": "/api/index.py" }
   ]
 }
