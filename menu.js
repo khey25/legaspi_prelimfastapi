@@ -33,3 +33,38 @@ searchBar.addEventListener('keyup', (e) => {
         }
     });
 });
+
+// --- TOOLS MODAL LOGIC ---
+const toolsBtn = document.getElementById('tools-btn');
+const toolsOverlay = document.getElementById('tools-overlay');
+const closeToolsBtn = document.getElementById('close-tools-btn');
+
+// Open Modal
+if (toolsBtn) {
+    toolsBtn.addEventListener('click', () => {
+        toolsOverlay.classList.remove('hidden');
+    });
+}
+
+// Close Modal (via X button)
+if (closeToolsBtn) {
+    closeToolsBtn.addEventListener('click', () => {
+        toolsOverlay.classList.add('hidden');
+    });
+}
+
+// Close Modal (via clicking the blurred background)
+window.addEventListener('click', (event) => {
+    if (event.target === toolsOverlay) {
+        toolsOverlay.classList.add('hidden');
+    }
+});
+
+// Route to The Hustle Match
+const matchmakerCard = document.getElementById('tool-matchmaker');
+if (matchmakerCard) {
+    matchmakerCard.addEventListener('click', () => {
+        // This assumes you will create matchmaker.html in the same root folder as index.html
+        window.location.href = 'matchmaker.html';
+    });
+}
