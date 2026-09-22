@@ -65,6 +65,6 @@ const matchmakerCard = document.getElementById('tool-matchmaker');
 if (matchmakerCard) {
     matchmakerCard.addEventListener('click', () => {
         // This assumes you will create matchmaker.html in the same root folder as index.html
-        window.location.href = 'matchmaker.html';
+        window.location.href = 'matchmaker/matchmaker.html';
     });
 }
