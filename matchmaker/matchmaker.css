@@ -1,0 +1,223 @@
+/* General Setup */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: transparent; 
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden; 
+}
+
+/* --- THE GOLDEN PULSE BACKGROUND --- */
+.neon-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -5; 
+    background-color: #0b0310; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.pulsating-circle-gold {
+    width: 50vw; 
+    height: 50vw;
+    max-width: 800px;
+    max-height: 800px;
+    /* Swapped purple for Stardew Gold! */
+    background: radial-gradient(circle, rgba(255, 235, 59, 0.25) 0%, rgba(255, 235, 59, 0) 70%);
+    border-radius: 50%;
+    animation: pulse-glow 4s infinite alternate ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0% { transform: scale(0.8); opacity: 0.4; }
+    100% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Typography */
+h1 {
+    font-size: 3.5rem;
+    color: #be70f1; /* Matching Gold Header */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #eeeeee;
+    text-align: center;
+}
+
+/* Buttons */
+.nav-btn {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #be70f1; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    font-weight: bold;
+    transition: background-color 0.2s;
+    display: block;
+    margin: 0 auto 40px auto;
+}
+.nav-btn:hover { background-color: #8a2be2; }
+
+/* --- QUIZ INTERFACE --- */
+.quiz-container {
+    background-color: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid #be70f1;
+    border-radius: 12px;
+    padding: 50px;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 235, 59, 0.3);
+    transition: opacity 0.5s ease;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.quiz-btn {
+    padding: 15px 20px;
+    font-size: 1.3rem;
+    background-color: #222;
+    color: #be70f1;
+    border: 2px solid #42185e00;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.quiz-btn:hover {
+    transform: translateY(-3px);
+    border-color: #f1b50d;
+    color: #f1b50d;
+    box-shadow: 0 0 15px rgba(255, 235, 59, 0.5);
+}
+
+.restart-btn {
+    margin-top: 40px;
+    background-color: #be70f1;
+    color: white;
+}
+
+/* --- RESULTS GRID --- */
+.hidden { display: none !important; }
+
+.results-container {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    animation: fade-in 1s ease forwards;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.match-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.match-card {
+    height: 180px;
+    background-color: #1e1e1e;
+    border: 2px solid #be70f1;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    border-color: #f1b50d;
+    box-shadow: 0 0 20px rgba(255, 235, 59, 0.6), inset 0 0 10px rgba(255, 235, 59, 0.3);
+}
+
+/* --- MODAL STYLING (Recycled from Hub) --- */
+#details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); 
+    backdrop-filter: blur(12px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.details-modal-content {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1000px;
+    overflow: hidden;
+    border: 2px solid #f1b50d;
+    position: relative;
+    animation: modal-pop 0.3s ease forwards;
+}
+
+@keyframes modal-pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.details-split { display: flex; height: 600px; }
+.details-image { flex: 1.2; background-color: #222; }
+.details-text { flex: 1; background-color: #000; color: #ddd; padding: 40px; overflow-y: auto; text-align: left; }
+.details-text h3 { color: #f1b50d; font-size: 2rem; margin-top: 0; margin-bottom: 15px; }
+
+@media (max-width: 900px) {
+    .details-split { flex-direction: column; height: 80vh; }
+    .details-image { flex: 1; min-height: 250px; }
+    .details-text { flex: 1; padding: 25px; }
+}

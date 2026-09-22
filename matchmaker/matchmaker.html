@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hustle Matchmaker</title>
+    <link rel="stylesheet" href="matchmaker.css">
+</head>
+<body>
+    <!-- Subtle Golden Pulsating Background -->
+    <div class="neon-bg">
+        <div class="pulsating-circle-gold"></div>
+    </div>
+    
+    <header>
+        <h1>THE HUSTLE MATCH</h1>
+        <button id="home-btn" class="nav-btn">Return to Hub</button>
+    </header>
+
+    <!-- Quiz Container -->
+    <main class="quiz-container" id="quiz-box">
+        <h2 id="question-text">Ready to find your perfect grind?</h2>
+        <div class="options-container" id="options-box">
+            <button class="quiz-btn" id="start-btn">Start Matchmaker</button>
+        </div>
+    </main>
+
+    <!-- Results Container (Hidden until quiz is done) -->
+    <main class="results-container hidden" id="results-box">
+        <h2>Your Top 3 Recommended Grinds</h2>
+        <div class="match-grid" id="recommendation-grid">
+            <!-- JavaScript will inject cards here -->
+        </div>
+        <button class="quiz-btn restart-btn" id="restart-btn">Take Quiz Again</button>
+    </main>
+
+    <!-- Split-Screen Detail Modal -->
+    <div id="details-overlay" class="hidden">
+        <div class="details-modal-content">
+            <button id="close-details-btn" class="close-btn">X</button>
+            <div class="details-split">
+                <div class="details-image"></div>
+                <div class="details-text">
+                    <h3 id="detail-title">Item Name</h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="matchmaker.js"></script>
+</body>
+</html>
