@@ -1,31 +1,57 @@
+const API_URL = "https://the-hustle-hub.vercel.app/";
 
-// --- MAIN MENU ROUTING ---
-// When a user clicks a card, send them to that game's specific folder/menu
-document.getElementById('nav-gta').addEventListener('click', () => {
-    window.location.href = 'gta/gtamenu.html'; // Assuming this is in the same root folder
-});
+// --- API FETCH LOGIC ---
+async function loadGames() {
+    try {
+        const response = await fetch(`${API_URL}/games`);
+        const games = await response.json(); 
+        buildGameCards(games);
+    } catch (error) {
+        console.error("Error fetching games directory from API:", error);
+    }
+}
 
-document.getElementById('nav-stardew').addEventListener('click', () => {
-    window.location.href = 'stardew/stardewmenu.html';
-});
+// --- DYNAMIC CARD BUILDER ---
+function buildGameCards(gameList) {
+    const grid = document.getElementById('games-grid');
+    if (!grid || !gameList) return;
 
-document.getElementById('nav-warframe').addEventListener('click', () => {
-    window.location.href = 'warframemenu.html';
-});
+    grid.innerHTML = ""; // Clear existing
 
+    gameList.forEach(game => {
+        const card = document.createElement('div');
+        card.className = 'nav-card';
+        card.setAttribute('data-tags', game.tags);
+        
+        // Render dynamic title text based on backend availability status
+        let titleDisplay = game.status === "Available" ? game.name : "coming soon...";
 
-// --- LIGHTWEIGHT LOCAL SEARCH ---
+        card.innerHTML = `
+            <img src="${game.image_url}" class="nav-img" alt="${game.name}">
+            <h2 class="card-title">${titleDisplay}</h2>
+        `;
+
+        // Only add click routing if the game is active
+        card.addEventListener('click', () => {
+            if (game.status === "Available" && game.path !== "") {
+                window.location.href = game.path;
+            }
+        });
+
+        grid.appendChild(card);
+    });
+}
+
+// --- DYNAMIC SEARCH BAR ---
 const searchBar = document.getElementById('search-bar');
-const gameCards = document.querySelectorAll('.nav-card');
-
 searchBar.addEventListener('keyup', (e) => {
     const query = e.target.value.toLowerCase().trim();
+    
+    // Dynamically query all cards currently on screen
+    const gameCards = document.querySelectorAll('.nav-card');
 
     gameCards.forEach(card => {
-        // Pull the hidden keywords we wrote into the HTML data-tags
         const tags = card.getAttribute('data-tags').toLowerCase();
-        
-        // If the tags include what the user typed, show it. Otherwise, hide it!
         if (tags.includes(query) || query === "") {
             card.style.display = "flex"; 
         } else {
@@ -39,32 +65,17 @@ const toolsBtn = document.getElementById('tools-btn');
 const toolsOverlay = document.getElementById('tools-overlay');
 const closeToolsBtn = document.getElementById('close-tools-btn');
 
-// Open Modal
-if (toolsBtn) {
-    toolsBtn.addEventListener('click', () => {
-        toolsOverlay.classList.remove('hidden');
-    });
-}
+if (toolsBtn) toolsBtn.addEventListener('click', () => toolsOverlay.classList.remove('hidden'));
+if (closeToolsBtn) closeToolsBtn.addEventListener('click', () => toolsOverlay.classList.add('hidden'));
 
-// Close Modal (via X button)
-if (closeToolsBtn) {
-    closeToolsBtn.addEventListener('click', () => {
-        toolsOverlay.classList.add('hidden');
-    });
-}
-
-// Close Modal (via clicking the blurred background)
 window.addEventListener('click', (event) => {
-    if (event.target === toolsOverlay) {
-        toolsOverlay.classList.add('hidden');
-    }
+    if (event.target === toolsOverlay) toolsOverlay.classList.add('hidden');
 });
 
-// Route to The Hustle Match
 const matchmakerCard = document.getElementById('tool-matchmaker');
 if (matchmakerCard) {
-    matchmakerCard.addEventListener('click', () => {
-        // This assumes you will create matchmaker.html in the same root folder as index.html
-        window.location.href = 'matchmaker.html';
-    });
+    matchmakerCard.addEventListener('click', () => window.location.href = 'matchmaker.html');
 }
+
+// TRIGGER INITIAL LOAD
+loadGames();
