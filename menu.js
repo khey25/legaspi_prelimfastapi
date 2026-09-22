@@ -3,7 +3,7 @@ const API_URL = "https://the-hustle-hub.vercel.app";
 // --- API FETCH LOGIC ---
 async function loadGames() {
     try {
-        const response = await fetch(`${API_URL}/games`);
+        const response = await fetch(`${API_URL}/games/`);
         const games = await response.json(); 
         buildGameCards(games);
     } catch (error) {
