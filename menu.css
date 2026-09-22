@@ -192,3 +192,118 @@ h2 {
         min-height: 250px;
     }
 }
+
+/* --- NEW CONTROLS STYLING --- */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Adds space between the search bar and the button */
+    margin-bottom: 60px;
+}
+
+#tools-btn {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: #be70f1; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#tools-btn:hover {
+    background-color: #8a2be2;
+}
+
+/* --- MODAL OVERLAY STYLES --- */
+#tools-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid #be70f1;
+    position: relative;
+    text-align: center;
+    animation: modal-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; 
+    width: 80%;
+    max-width: 800px; 
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Modal Tool Cards */
+.category-card {
+    flex: 1;
+    height: 350px;
+    background-color: #222;
+    border: 2px solid #be70f1; 
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgb(0, 0, 0); 
+    font-size: 2rem;
+    font-weight: bold;
+    color: #be70f1; /* Main Hub Theme Color */
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    position: relative; 
+    overflow: hidden;
+}
+
+/* Reusing the clean purple glow from the main menu cards */
+.category-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(190, 112, 241, 0.8), inset 0 0 15px rgba(190, 112, 241, 0.4); 
+}
+
+/* Modal Pop-In Animation */
+@keyframes modal-pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive Modal Fixes */
+@media (max-width: 900px) {
+    .modal-content {
+        width: 90%;
+        padding: 30px 15px;
+    }
+    .category-card {
+        height: 150px; 
+        width: 100%;
+        flex: none; 
+        min-height: 150px; 
+    }
+}
