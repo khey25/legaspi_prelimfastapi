@@ -19,6 +19,7 @@
         <div class="controls">
             <!-- Notice we removed the extra buttons here! -->
             <input type="text" id="search-bar" placeholder="Search for Games (e.g. GTA, Farming...)">
+            <button id="tools-btn">Tools</button>
         </div>
     </header>
 
@@ -114,6 +115,29 @@
             
         </div>
     </main>
+
+<div id="tools-overlay" class="hidden">
+        <div class="modal-content">
+            <button id="close-tools-btn" class="close-btn">X</button>
+            <h2>SELECT A TOOL</h2>
+            
+            <div class="category-options">
+                
+                <!-- Tool 1: The Hustle Match -->
+                <div class="category-card" id="tool-matchmaker">
+                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/matchmaker.jpg?raw=true" alt="Matchmaker" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">The Hustle Match</p>
+                </div>
+                
+                <!-- Tool 2: Coming Soon -->
+                <div class="category-card">
+                    <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/comingsoon.jpg?raw=true" alt="Coming Soon" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;">
+                    <p style="position: relative; z-index: 1; margin: 0; color: #fff; text-shadow: 2px 2px 6px #000; pointer-events: none;">Coming soon...</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 
     <script src="menu.js"></script>
 </body>
