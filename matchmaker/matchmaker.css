@@ -211,6 +211,52 @@ h2 {
     z-index: 10;
 }
 
+/* --- NEW INFINITE CAROUSEL STYLES --- */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 50px;
+    position: relative;
+    /* Creates a seamless fade-out effect on the left and right edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content; /* Allows track to stretch as long as it needs */
+    animation: scroll-carousel 30s linear infinite; /* Adjust seconds to speed up/slow down */
+}
+
+/* Optional: Pauses the slide if the user hovers over an image */
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.carousel-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #be70f1;
+    opacity: 0.6;
+    transition: opacity 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+/* Enhances the image when hovered */
+.carousel-img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    border-color: #f1b50d;
+}
+
+/* Moves the track exactly 50% left, allowing the duplicate set to fill in seamlessly */
+@keyframes scroll-carousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); } /* Subtracts half the 20px gap */
+}
+
 .details-split { display: flex; height: 600px; }
 .details-image { flex: 1.2; background-color: #222; }
 .details-text { flex: 1; background-color: #000; color: #ddd; padding: 40px; overflow-y: auto; text-align: left; }
@@ -220,4 +266,100 @@ h2 {
     .details-split { flex-direction: column; height: 80vh; }
     .details-image { flex: 1; min-height: 250px; }
     .details-text { flex: 1; padding: 25px; }
+}
+
+/* --- MOBILE OPTIMIZATION FOR CAROUSEL --- */
+@media (max-width: 600px) {
+    .carousel-container {
+        margin-top: 30px;
+        -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        /* Add the standard property right below it! */
+        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    }
+    
+    .carousel-img {
+        width: 90px;
+        height: 90px;
+        border-radius: 8px;
+    }
+    
+    .carousel-track {
+        gap: 15px;
+    }
+    
+    @keyframes scroll-carousel {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-50% - 7.5px)); } 
+    }
+}
+
+/* --- DYNAMIC QUIZ LAYOUTS --- */
+.options-container.image-grid-layout {
+    display: grid;
+    /* Automatically creates responsive columns. Will fit 2 nicely, and scale down for 4 */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Image Option Button Styling */
+.quiz-img-btn {
+    position: relative;
+    height: 180px; /* Perfect medium size */
+    background-color: #222;
+    border: 2px solid #be70f1;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.quiz-img-btn img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
+
+.quiz-img-btn:hover {
+    transform: translateY(-5px);
+    border-color: #f1b50d; /* Stardew Gold Hover */
+    box-shadow: 0 0 15px rgba(255, 235, 59, 0.5);
+}
+
+.quiz-img-btn:hover img {
+    opacity: 0.8; /* Brighten on hover */
+}
+
+.quiz-img-btn span {
+    position: relative;
+    z-index: 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 6px #000;
+}
+
+/* --- MOBILE OPTIMIZATION FOR IMAGE BUTTONS --- */
+@media (max-width: 600px) {
+    .options-container.image-grid-layout {
+        /* Forces them into a vertical stack on tiny phone screens */
+        grid-template-columns: 1fr; 
+    }
+    
+    .quiz-img-btn {
+        height: 120px; /* Slimmer for mobile vertical stacking */
+    }
+    
+    .quiz-img-btn span {
+        font-size: 1.3rem;
+    }
 }

@@ -23,11 +23,37 @@
         <div class="options-container" id="options-box">
             <button class="quiz-btn" id="start-btn">Start Matchmaker</button>
         </div>
+        
+        <!-- NEW: Infinite Auto-Scrolling Carousel -->
+        <div class="carousel-container" id="game-carousel">
+            <div class="carousel-track">
+                <!-- Original Image Set -->
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/gtaonline.jpg?raw=true" class="carousel-img" alt="GTA Online">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/stardew.jpg?raw=true" class="carousel-img" alt="Stardew Valley">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/warframe.jpg?raw=true" class="carousel-img" alt="Warframe">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/minecraft.jpg?raw=true" class="carousel-img" alt="Minecraft">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/cyberpunk.jpg?raw=true" class="carousel-img" alt="Cyberpunk 2077">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/runescape.jpg?raw=true" class="carousel-img" alt="OSRS">
+                
+                <!-- Duplicated Set for Seamless Infinite Looping -->
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/gtaonline.jpg?raw=true" class="carousel-img" alt="GTA Online">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/stardew.jpg?raw=true" class="carousel-img" alt="Stardew Valley">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/warframe.jpg?raw=true" class="carousel-img" alt="Warframe">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/minecraft.jpg?raw=true" class="carousel-img" alt="Minecraft">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/cyberpunk.jpg?raw=true" class="carousel-img" alt="Cyberpunk 2077">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/menuimages/runescape.jpg?raw=true" class="carousel-img" alt="OSRS">
+            </div>
+        </div>
+
+        <!-- Go Back Button (Hidden by default) -->
+        <button id="back-btn" class="quiz-btn hidden" style="margin-top: 30px; border-color: #555; color: #aaa; font-size: 1rem; padding: 10px 20px;">
+            &#8592; Go Back
+        </button>
     </main>
 
     <!-- Results Container (Hidden until quiz is done) -->
     <main class="results-container hidden" id="results-box">
-        <h2>Your Top 3 Recommended Grinds</h2>
+        <h2>Your Top Recommended Grinds</h2>
         <div class="match-grid" id="recommendation-grid">
             <!-- JavaScript will inject cards here -->
         </div>
