@@ -1,8 +1,32 @@
 from fastapi import APIRouter, HTTPException
 from typing import Optional
+from pydantic import BaseModel, Field
 
 # Initialize the router
 router = APIRouter()
+
+# ==========================================
+# PYDANTIC DATA MODEL (The Blueprint)
+# ==========================================
+# Since Crops, Artisan Goods, and Animal Products share the same structure,
+# we only need one master blueprint for Stardew Valley.
+class StardewItem(BaseModel):
+    name: str = Field(min_length=1)
+    setup_cost: int = Field(ge=0)
+    base_payout: int = Field(ge=0)
+    max_payout: int = Field(ge=0)
+    processing_days: int = Field(ge=1)
+    optimal_season: str = Field(min_length=1)
+    required_building: str = Field(min_length=1)
+    required_equipment: str = Field(min_length=1)
+    prerequisite_skill: str = Field(min_length=1)
+    best_profession: str = Field(min_length=1)
+    loved_by_villagers: str = Field(min_length=1)
+    is_repeatable: bool
+    greenhouse_compatible: bool
+    daily_maintenance: bool
+    artisan_buff_eligible: bool
+    image_url: str = Field(min_length=1)
 
 # --- THE MASSIVE 16-ATTRIBUTE STARDEW DATABASE ---
 stardew_database = {
@@ -410,6 +434,26 @@ stardew_database = {
     }
 }
 
+# ==========================================
+# ON-BOOT DATA VALIDATION
+# ==========================================
+print("Validating Stardew Database...")
+
+for tier, items in stardew_database["crops"].items():
+    validated_items = [StardewItem(**item).model_dump() for item in items]
+    stardew_database["crops"][tier] = validated_items
+
+for tier, items in stardew_database["artisan_goods"].items():
+    validated_items = [StardewItem(**item).model_dump() for item in items]
+    stardew_database["artisan_goods"][tier] = validated_items
+
+for tier, items in stardew_database["animal_products"].items():
+    validated_items = [StardewItem(**item).model_dump() for item in items]
+    stardew_database["animal_products"][tier] = validated_items
+
+print("Stardew Database Validation Complete.")
+
+
 # --- HOME ENDPOINT ---
 @router.get("/")
 def home():
@@ -423,10 +467,25 @@ def get_all_crops():
 @router.get("/crops/search")
 def search_crops(q: Optional[str] = ""):
     if not q: return stardew_database["crops"]
+    
+    q = q.lower()
     results = {"Joja-Level Profits": [], "Honest Honest Work": [], "Literally Just For Fun": []}
+    
     for tier, items in stardew_database["crops"].items():
-        matched = [c for c in items if q.lower() in c["name"].lower()]
-        if matched: results[tier] = matched
+        for c in items:
+            searchable_text = (
+                f"{c['name']} "
+                f"{c['optimal_season']} "
+                f"{c['required_building']} "
+                f"{c['required_equipment']} "
+                f"{c['prerequisite_skill']} "
+                f"{c['best_profession']} "
+                f"{c['loved_by_villagers']}"
+            ).lower()
+            
+            if q in searchable_text:
+                results[tier].append(c)
+                
     return results
 
 @router.get("/crops/{ranking}")
@@ -443,10 +502,25 @@ def get_all_artisan_goods():
 @router.get("/artisan_goods/search")
 def search_artisan_goods(q: Optional[str] = ""):
     if not q: return stardew_database["artisan_goods"]
+    
+    q = q.lower()
     results = {"Joja-Level Profits": [], "Honest Honest Work": [], "Literally Just For Fun": []}
+    
     for tier, items in stardew_database["artisan_goods"].items():
-        matched = [a for a in items if q.lower() in a["name"].lower()]
-        if matched: results[tier] = matched
+        for a in items:
+            searchable_text = (
+                f"{a['name']} "
+                f"{a['optimal_season']} "
+                f"{a['required_building']} "
+                f"{a['required_equipment']} "
+                f"{a['prerequisite_skill']} "
+                f"{a['best_profession']} "
+                f"{a['loved_by_villagers']}"
+            ).lower()
+            
+            if q in searchable_text:
+                results[tier].append(a)
+                
     return results
 
 @router.get("/artisan_goods/{ranking}")
@@ -463,10 +537,25 @@ def get_all_animal_products():
 @router.get("/animal_products/search")
 def search_animal_products(q: Optional[str] = ""):
     if not q: return stardew_database["animal_products"]
+    
+    q = q.lower()
     results = {"Joja-Level Profits": [], "Honest Honest Work": [], "Literally Just For Fun": []}
+    
     for tier, items in stardew_database["animal_products"].items():
-        matched = [a for a in items if q.lower() in a["name"].lower()]
-        if matched: results[tier] = matched
+        for a in items:
+            searchable_text = (
+                f"{a['name']} "
+                f"{a['optimal_season']} "
+                f"{a['required_building']} "
+                f"{a['required_equipment']} "
+                f"{a['prerequisite_skill']} "
+                f"{a['best_profession']} "
+                f"{a['loved_by_villagers']}"
+            ).lower()
+            
+            if q in searchable_text:
+                results[tier].append(a)
+                
     return results
 
 @router.get("/animal_products/{ranking}")

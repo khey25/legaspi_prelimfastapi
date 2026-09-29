@@ -1,10 +1,69 @@
 from fastapi import APIRouter, HTTPException
-from typing import Optional
+from typing import Optional, Literal
+from pydantic import BaseModel, Field
 
 # Initialize the router
 router = APIRouter()
 
+# ==========================================
+# PYDANTIC DATA MODELS (The Blueprints)
+# ==========================================
+class GTABusiness(BaseModel):
+    name: str = Field(min_length=1)
+    property: str = Field(min_length=1)
+    associated_network: str = Field(min_length=1)
+    setup_cost: int = Field(ge=0)
+    is_passive: bool
+    solo_friendly: bool
+    max_payout: int = Field(ge=0)
+    restock_method: str = Field(min_length=1)
+    can_be_raided: bool
+    cooldown_minutes: int = Field(ge=0)
+    min_players: int = Field(ge=1, le=4)
+    max_players: int = Field(ge=1, le=4)
+    release_update: str = Field(min_length=1)
+    release_year: int = Field(ge=2013, le=2100)
+    location_options: int = Field(ge=1)
+    image_url: str = Field(min_length=1)
+
+class GTAHeist(BaseModel):
+    name: str = Field(min_length=1)
+    required_property: str = Field(min_length=1)
+    primary_location: str = Field(min_length=1)
+    setup_cost: int = Field(ge=0)
+    solo_friendly: bool
+    max_payout: int = Field(ge=0)
+    prep_missions: int = Field(ge=0)
+    cooldown_minutes: int = Field(ge=0)
+    min_players: int = Field(ge=1, le=4)
+    max_players: int = Field(ge=1, le=4)
+    stealth_option: bool
+    hard_mode_available: bool
+    elite_challenge: bool
+    release_update: str = Field(min_length=1)
+    release_year: int = Field(ge=2013, le=2100)
+    image_url: str = Field(min_length=1)
+
+class GTAContactMission(BaseModel):
+    name: str = Field(min_length=1)
+    contact: str = Field(min_length=1)
+    mission_type: str = Field(min_length=1)
+    unlock_requirement: str = Field(min_length=1)
+    solo_friendly: bool
+    base_payout: int = Field(ge=0)
+    time_to_complete_mins: int = Field(ge=1)
+    difficulty_selectable: bool
+    cooldown_minutes: int = Field(ge=0)
+    min_players: int = Field(ge=1, le=4)
+    max_players: int = Field(ge=1, le=4)
+    combat_heavy: bool
+    double_money_eligible: bool
+    release_update: str = Field(min_length=1)
+    release_year: int = Field(ge=2013, le=2100)
+    image_url: str = Field(min_length=1)
+
 # --- THE MASSIVE 16-ATTRIBUTE DATABASE ---
+# (Keep your existing gta_database dictionary exactly as it was)
 gta_database = {
     "businesses": {
         "Suspiciously Profitable": [
@@ -500,8 +559,31 @@ gta_database = {
     }
 }
 
+# ==========================================
+# ON-BOOT DATA VALIDATION
+# ==========================================
+# This checks every single entry in your database against the Pydantic blueprints when the server starts.
+print("Validating GTA Database...")
+
+# Validate Businesses
+for tier, items in gta_database["businesses"].items():
+    validated_items = [GTABusiness(**item).model_dump() for item in items]
+    gta_database["businesses"][tier] = validated_items
+
+# Validate Heists
+for tier, items in gta_database["heists"].items():
+    validated_items = [GTAHeist(**item).model_dump() for item in items]
+    gta_database["heists"][tier] = validated_items
+
+# Validate Contact Missions
+for tier, items in gta_database["contact"].items():
+    validated_items = [GTAContactMission(**item).model_dump() for item in items]
+    gta_database["contact"][tier] = validated_items
+
+print("GTA Database Validation Complete.")
+
+
 # --- HOME ENDPOINT ---
-# 2. Swap @app.get for @router.get on every endpoint
 @router.get("/")
 def home():
     return {"message": "Welcome to the GTA Online Activity API!"}
@@ -514,10 +596,24 @@ def get_all_businesses():
 @router.get("/businesses/search")
 def search_businesses(q: Optional[str] = ""):
     if not q: return gta_database["businesses"]
+    
+    q = q.lower()
     results = {"Suspiciously Profitable": [], "Above Minimum Wage": [], "Going Bankrupt": []}
+    
     for tier, items in gta_database["businesses"].items():
-        matched = [b for b in items if q.lower() in b["name"].lower()]
-        if matched: results[tier] = matched
+        for b in items:
+            # Aggregate all searchable text fields into one string
+            searchable_text = (
+                f"{b['name']} "
+                f"{b['property']} "
+                f"{b['associated_network']} "
+                f"{b['restock_method']} "
+                f"{b['release_update']}"
+            ).lower()
+            
+            if q in searchable_text:
+                results[tier].append(b)
+                
     return results
 
 @router.get("/businesses/{ranking}")
@@ -534,10 +630,22 @@ def get_all_heists():
 @router.get("/heists/search")
 def search_heists(q: Optional[str] = ""):
     if not q: return gta_database["heists"]
+    
+    q = q.lower()
     results = {"Billionaire Amongst Millionaires": [], "Typical Bank Heist": [], "What is this? A Convenience Store?": []}
+    
     for tier, items in gta_database["heists"].items():
-        matched = [h for h in items if q.lower() in h["name"].lower()]
-        if matched: results[tier] = matched
+        for h in items:
+            searchable_text = (
+                f"{h['name']} "
+                f"{h['required_property']} "
+                f"{h['primary_location']} "
+                f"{h['release_update']}"
+            ).lower()
+            
+            if q in searchable_text:
+                results[tier].append(h)
+                
     return results
 
 @router.get("/heists/{ranking}")
@@ -554,10 +662,22 @@ def get_all_contact_missions():
 @router.get("/contact/search")
 def search_contact_missions(q: Optional[str] = ""):
     if not q: return gta_database["contact"]
+    
+    q = q.lower()
     results = {"Money and Time Efficient": [], "Just for the Vibes": [], "Why are you even doing this?": []}
+    
     for tier, items in gta_database["contact"].items():
-        matched = [c for c in items if q.lower() in c["name"].lower()]
-        if matched: results[tier] = matched
+        for c in items:
+            searchable_text = (
+                f"{c['name']} "
+                f"{c['contact']} "
+                f"{c['mission_type']} "
+                f"{c['release_update']}"
+            ).lower()
+            
+            if q in searchable_text:
+                results[tier].append(c)
+                
     return results
 
 @router.get("/contact/{ranking}")
