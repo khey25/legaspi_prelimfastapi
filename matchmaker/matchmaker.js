@@ -1,4 +1,11 @@
-const API_URL = "https://the-hustle-hub.vercel.app"; 
+// 1. YOUR VERCEL API URL (Updated with v1 prefix)
+const API_URL = "https://the-hustle-hub.vercel.app/api/v1"; 
+
+// 2. YOUR SECRET API KEY & REUSABLE HEADER
+const API_KEY = "hustle-hub-secret-key";
+const FETCH_OPTIONS = {
+    headers: { "x-api-key": API_KEY }
+};
 
 // Navigation
 document.getElementById('home-btn').addEventListener('click', () => {
@@ -160,7 +167,7 @@ async function calculateMatch() {
             fetchUrls = [`${API_URL}/stardew/crops`, `${API_URL}/stardew/artisan_goods`, `${API_URL}/stardew/animal_products`];
         }
 
-        const responses = await Promise.all(fetchUrls.map(url => fetch(url)));
+        const responses = await Promise.all(fetchUrls.map(url => fetch(url, FETCH_OPTIONS)));
         const dataSets = await Promise.all(responses.map(res => res.json()));
 
         // Flatten dictionary into one giant array
