@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hustle Empire</title>
+    <link rel="stylesheet" href="hustleempire.css">
+</head>
+<body>
+    <div class="neon-bg">
+        <div class="pulsating-circle-gold"></div>
+    </div>
+    
+    <header>
+        <h1>THE HUSTLE EMPIRE</h1>
+        <button id="home-btn" class="nav-btn">Return to Hub</button>
+    </header>
+
+    <main class="quiz-container" id="calculator-box">
+        <h2>Empire Builder Calculator</h2>
+        <p style="margin-bottom: 30px;">Input your financial goal and current balance to generate a custom grind plan.</p>
+        
+        <div class="options-container form-layout">
+            <input type="text" id="goal-name" class="empire-input" placeholder="Target Item (e.g. Kosatka Submarine)">
+            <input type="number" id="goal-cost" class="empire-input" placeholder="Total Cost ($)">
+            <input type="number" id="current-bank" class="empire-input" placeholder="Current Bank Balance ($)">
+            
+            <select id="game-selector" class="empire-input">
+                <option value="gta">GTA Online</option>
+                <option value="stardew">Stardew Valley</option>
+            </select>
+
+            <button class="quiz-btn" id="calculate-btn" style="margin-top: 15px;">Generate Grind Plan</button>
+        </div>
+    </main>
+
+    <main class="results-container hidden" id="results-box">
+        <h2 id="results-header">Your Custom Grind Plan</h2>
+        <h3 id="shortfall-display" style="color: #f1b50d; margin-bottom: 30px;"></h3>
+        <div class="match-grid" id="recommendation-grid">
+            <!-- JavaScript injects strategy cards here -->
+        </div>
+        <button class="quiz-btn restart-btn" id="restart-btn">Calculate Another Goal</button>
+    </main>
+
+    <div id="details-overlay" class="hidden">
+        <div class="details-modal-content">
+            <button id="close-details-btn" class="close-btn">X</button>
+            <div class="details-split">
+                <div class="details-image"></div>
+                <div class="details-text">
+                    <h3 id="detail-title">Item Name</h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="hustleempire.js"></script>
+</body>
+</html>
