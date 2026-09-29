@@ -1,4 +1,11 @@
-const API_URL = "https://the-hustle-hub.vercel.app/"; 
+// 1. YOUR VERCEL API URL (Updated with v1 prefix)
+const API_URL = "https://the-hustle-hub.vercel.app/api/v1"; 
+
+// 2. YOUR SECRET API KEY & REUSABLE HEADER
+const API_KEY = "hustle-hub-secret-key";
+const FETCH_OPTIONS = {
+    headers: { "x-api-key": API_KEY }
+};
 
 const homeBtn = document.getElementById('home-btn');
 
@@ -39,7 +46,7 @@ document.getElementById('nav-animals').addEventListener('click', () => {
 // --- API FETCH LOGIC ---
 async function loadCrops() {
     try {
-        const response = await fetch(`${API_URL}/stardew/crops`);
+        const response = await fetch(`${API_URL}/stardew/crops`, FETCH_OPTIONS);
         const data = await response.json(); 
 
         buildCards(data["Joja-Level Profits"], "grid-joja");
@@ -101,9 +108,8 @@ function buildCards(cropList, gridId) {
 const searchBar = document.getElementById('search-bar');
 searchBar.addEventListener('input', async (e) => {
     const searchTerm = e.target.value.trim();
-    
     try {
-        const response = await fetch(`${API_URL}/stardew/crops/search?q=${searchTerm}`);
+        const response = await fetch(`${API_URL}/stardew/crops/search?q=${searchTerm}`, FETCH_OPTIONS);
         const data = await response.json();
 
         document.getElementById("grid-joja").innerHTML = "";

@@ -1,4 +1,11 @@
-const API_URL = "https://the-hustle-hub.vercel.app/";
+// 1. YOUR VERCEL API URL (Updated with v1 prefix)
+const API_URL = "https://the-hustle-hub.vercel.app/api/v1"; 
+
+// 2. YOUR SECRET API KEY & REUSABLE HEADER
+const API_KEY = "hustle-hub-secret-key";
+const FETCH_OPTIONS = {
+    headers: { "x-api-key": API_KEY }
+};
 
 // --- DOM Elements ---
 const categoriesBtn = document.getElementById('categories-btn');
@@ -69,9 +76,9 @@ searchBar.addEventListener('input', async (e) => {
     try {
         // Fetch from ALL Stardew APIs concurrently
         const [cropsRes, artisanRes, animalRes] = await Promise.all([
-            fetch(`${API_URL}/stardew/crops/search?q=${searchTerm}`),
-            fetch(`${API_URL}/stardew/artisan_goods/search?q=${searchTerm}`),
-            fetch(`${API_URL}/stardew/animal_products/search?q=${searchTerm}`)
+            fetch(`${API_URL}/stardew/crops/search?q=${searchTerm}`, FETCH_OPTIONS),
+            fetch(`${API_URL}/stardew/artisan_goods/search?q=${searchTerm}`, FETCH_OPTIONS),
+            fetch(`${API_URL}/stardew/animal_products/search?q=${searchTerm}`, FETCH_OPTIONS)
         ]);
 
         const cropsData = await cropsRes.json();
