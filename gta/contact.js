@@ -1,4 +1,11 @@
-const API_URL = "https://the-hustle-hub.vercel.app/";
+// 1. YOUR VERCEL API URL (Updated with v1 prefix)
+const API_URL = "https://the-hustle-hub.vercel.app/api/v1";
+
+// 2. YOUR SECRET API KEY & REUSABLE HEADER
+const API_KEY = "hustle-hub-secret-key";
+const FETCH_OPTIONS = {
+    headers: { "x-api-key": API_KEY }
+};
 
 // --- BACKGROUND SLIDER LOGIC ---
 const backgrounds = [
@@ -58,7 +65,7 @@ document.getElementById('nav-heists').addEventListener('click', () => window.loc
 // Initial Load
 async function loadContactMissions() {
     try {
-        const response = await fetch(`${API_URL}/gta/contact`);
+        const response = await fetch(`${API_URL}/gta/contact`, FETCH_OPTIONS);
         const data = await response.json(); 
         buildCards(data["Money and Time Efficient"], "grid-efficient");
         buildCards(data["Just for the Vibes"], "grid-vibes");
@@ -114,7 +121,7 @@ const searchBar = document.getElementById('search-bar');
 searchBar.addEventListener('input', async (e) => {
     const searchTerm = e.target.value;
     try {
-        const response = await fetch(`${API_URL}/gta/contact/search?q=${searchTerm}`);
+        const response = await fetch(`${API_URL}/gta/contact/search?q=${searchTerm}`, FETCH_OPTIONS);
         const data = await response.json();
 
         document.getElementById("grid-efficient").innerHTML = "";

@@ -1,5 +1,11 @@
-const API_URL = "https://the-hustle-hub.vercel.app/";
+// 1. YOUR VERCEL API URL (Updated with v1 prefix)
+const API_URL = "https://the-hustle-hub.vercel.app/api/v1";
 
+// 2. YOUR SECRET API KEY & REUSABLE HEADER
+const API_KEY = "hustle-hub-secret-key";
+const FETCH_OPTIONS = {
+    headers: { "x-api-key": API_KEY }
+};
 // --- BACKGROUND SLIDER LOGIC ---
 const backgrounds = [
     "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true",
@@ -135,9 +141,9 @@ searchBar.addEventListener('input', async (e) => {
     try {
         // Fetch from ALL APIs at the exact same time
         const [bizResponse, contactResponse, heistResponse] = await Promise.all([
-            fetch(`${API_URL}/gta/businesses/search?q=${searchTerm}`),
-            fetch(`${API_URL}/gta/contact/search?q=${searchTerm}`),
-            fetch(`${API_URL}/gta/heists/search?q=${searchTerm}`)
+            fetch(`${API_URL}/gta/businesses/search?q=${searchTerm}`, FETCH_OPTIONS),
+            fetch(`${API_URL}/gta/contact/search?q=${searchTerm}`, FETCH_OPTIONS),
+            fetch(`${API_URL}/gta/heists/search?q=${searchTerm}`, FETCH_OPTIONS)
         ]);
 
         const bizData = await bizResponse.json();

@@ -1,5 +1,11 @@
-// 1. YOUR VERCEL API URL (Trailing slash removed!)
-const API_URL = "https://the-hustle-hub.vercel.app/"; 
+// 1. YOUR VERCEL API URL (Updated with v1 prefix)
+const API_URL = "https://the-hustle-hub.vercel.app/api/v1";
+
+// 2. YOUR SECRET API KEY & REUSABLE HEADER
+const API_KEY = "hustle-hub-secret-key";
+const FETCH_OPTIONS = {
+    headers: { "x-api-key": API_KEY }
+};
 
 // --- BACKGROUND SLIDER LOGIC ---
 const backgrounds = [
@@ -73,7 +79,7 @@ document.getElementById('nav-contact').addEventListener('click', () => {
 // --- API FETCH LOGIC ---
 async function loadHeists() {
     try {
-        const response = await fetch(`${API_URL}/gta/heists`);
+        const response = await fetch(`${API_URL}/gta/heists`, FETCH_OPTIONS);
         const data = await response.json(); 
 
         buildCards(data["Billionaire Amongst Millionaires"], "grid-billionaire");
@@ -135,9 +141,8 @@ function buildCards(heistList, gridId) {
 const searchBar = document.getElementById('search-bar');
 searchBar.addEventListener('input', async (e) => {
     const searchTerm = e.target.value.trim();
-    
     try {
-        const response = await fetch(`${API_URL}/gta/heists/search?q=${searchTerm}`);
+        const response = await fetch(`${API_URL}/gta/heists/search?q=${searchTerm}`, FETCH_OPTIONS);
         const data = await response.json();
 
         document.getElementById("grid-billionaire").innerHTML = "";

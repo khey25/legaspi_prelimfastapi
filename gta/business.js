@@ -1,6 +1,11 @@
-// 1. YOUR VERCEL API URL
-const API_URL = "https://the-hustle-hub.vercel.app/"; 
+// 1. YOUR VERCEL API URL (Updated with v1 prefix)
+const API_URL = "https://the-hustle-hub.vercel.app/api/v1";
 
+// 2. YOUR SECRET API KEY & REUSABLE HEADER
+const API_KEY = "hustle-hub-secret-key";
+const FETCH_OPTIONS = {
+    headers: { "x-api-key": API_KEY }
+};
 // --- BACKGROUND SLIDER LOGIC ---
 const backgrounds = [
     "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/acid.jpg?raw=true",
@@ -72,7 +77,7 @@ document.getElementById('nav-contact').addEventListener('click', () => {
 // --- API FETCH LOGIC ---
 async function loadBusinesses() {
     try {
-        const response = await fetch(`${API_URL}/gta/businesses`);
+        const response = await fetch(`${API_URL}/gta/businesses`, FETCH_OPTIONS);
         const data = await response.json(); 
 
         buildCards(data["Suspiciously Profitable"], "grid-profitable");
@@ -157,9 +162,8 @@ loadBusinesses();
 const searchBar = document.getElementById('search-bar');
 searchBar.addEventListener('input', async (e) => {
     const searchTerm = e.target.value.trim();
-    
     try {
-        const response = await fetch(`${API_URL}/gta/businesses/search?q=${searchTerm}`);
+        const response = await fetch(`${API_URL}/gta/businesses/search?q=${searchTerm}`, FETCH_OPTIONS);
         const data = await response.json();
 
         document.getElementById("grid-profitable").innerHTML = "";
