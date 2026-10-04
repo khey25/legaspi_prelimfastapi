@@ -1,0 +1,3 @@
+This is The Hustle Hub. Created by Kent Legaspi, a Computer Science student in lyceum of the Philippines - Cavite, Majoring in Software Engineering. This website is made with the purpose of practicing and mastering cloud computing implementations and developments. 
+Now, About the website, The hustle hub is a website about MONEY MAKING METHODS in different games, and is not just solely focused on one specific genre of games. Currently, Games that has information are very limited. This is because we're still trying to improve the fundamental structure of our code.
+Provide honest feedback and i will work on it, Provide features that you think is missing and i will work on it. 
