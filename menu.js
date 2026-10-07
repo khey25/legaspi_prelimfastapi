@@ -1,6 +1,3 @@
-
-// --- MAIN MENU ROUTING ---
-// When a user clicks a card, send them to that game's specific folder/menu
 document.getElementById('nav-gta').addEventListener('click', () => {
     window.location.href = 'gta/gtamenu.html'; // Assuming this is in the same root folder
 });
@@ -66,5 +63,12 @@ if (matchmakerCard) {
     matchmakerCard.addEventListener('click', () => {
         // This assumes you will create matchmaker.html in the same root folder as index.html
         window.location.href = 'matchmaker/matchmaker.html';
+    });
+}
+
+const empireCard = document.getElementById('tool-empire');
+if (empireCard) {
+    empireCard.addEventListener('click', () => {
+        window.location.href = 'hustleempire/hustleempire.html';
     });
 }
