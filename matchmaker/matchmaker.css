@@ -229,11 +229,6 @@ h2 {
     animation: scroll-carousel 30s linear infinite; /* Adjust seconds to speed up/slow down */
 }
 
-/* Optional: Pauses the slide if the user hovers over an image */
-.carousel-track:hover {
-    animation-play-state: paused;
-}
-
 .carousel-img {
     width: 140px;
     height: 140px;
