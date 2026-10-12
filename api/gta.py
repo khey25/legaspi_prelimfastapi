@@ -8,6 +8,12 @@ router = APIRouter()
 # ==========================================
 # PYDANTIC DATA MODELS (The Blueprints)
 # ==========================================
+class GTAGoal(BaseModel):
+    name: str = Field(min_length=1)
+    cost: int = Field(ge=0)
+    keywords: str = Field(min_length=1)
+    image_url: str = Field(min_length=1)
+
 class GTABusiness(BaseModel):
     name: str = Field(min_length=1)
     property: str = Field(min_length=1)
@@ -63,8 +69,24 @@ class GTAContactMission(BaseModel):
     image_url: str = Field(min_length=1)
 
 # --- THE MASSIVE 16-ATTRIBUTE DATABASE ---
-# (Keep your existing gta_database dictionary exactly as it was)
 gta_database = {
+    "goals": [
+        { "name": "Kosatka Submarine", "cost": 2200000, "keywords": "kosatka sub submarine cayo perico heist boat", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true" },
+        { "name": "Nightclub", "cost": 1080000, "keywords": "nightclub club biz management warehouse", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/nightclub.jpg?raw=true" },
+        { "name": "Bunker", "cost": 1165000, "keywords": "bunker gunrunning arms weapons research", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/gunrunning.jpg?raw=true" },
+        { "name": "Executive Office", "cost": 1000000, "keywords": "executive office ceo cargo vehicle special", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/vehicle.jpg?raw=true" },
+        { "name": "MC Clubhouse", "cost": 200000, "keywords": "mc clubhouse motorcycle club biker coke weed cash forgery", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cocaine.jpg?raw=true" },
+        { "name": "Hangar", "cost": 1200000, "keywords": "hangar air freight plane flying", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/aircargo.jpg?raw=true" },
+        { "name": "Bail Office", "cost": 1550000, "keywords": "bail office enforcement bounty hunting", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/bail.jpg?raw=true" },
+        { "name": "Agency", "cost": 2010000, "keywords": "agency franklin contract dre payphone hits", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/dre.jpg?raw=true" },
+        { "name": "Arcade", "cost": 1235000, "keywords": "arcade casino heist diamond", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/casino.jpg?raw=true" },
+        { "name": "High-End Apartment", "cost": 200000, "keywords": "high-end apartment classic heists house fleeca pacific", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/pacific.jpg?raw=true" },
+        { "name": "Facility", "cost": 1250000, "keywords": "facility doomsday heist", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/doomsday.jpg?raw=true" },
+        { "name": "Auto Shop", "cost": 1705000, "keywords": "auto shop tuners contracts cars", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/autoshop.jpg?raw=true" },
+        { "name": "Salvage Yard", "cost": 1620000, "keywords": "salvage yard chop shop robberies", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/salvage.jpg?raw=true" },
+        { "name": "Brickade 6x6", "cost": 750000, "keywords": "brickade acid lab drug wars freakshop 6x6", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/acid.jpg?raw=true" }
+    ],
+    
     "businesses": {
         "Suspiciously Profitable": [
             {
@@ -565,6 +587,10 @@ gta_database = {
 # This checks every single entry in your database against the Pydantic blueprints when the server starts.
 print("Validating GTA Database...")
 
+# Validate Goals
+validated_goals = [GTAGoal(**item).model_dump() for item in gta_database["goals"]]
+gta_database["goals"] = validated_goals
+
 # Validate Businesses
 for tier, items in gta_database["businesses"].items():
     validated_items = [GTABusiness(**item).model_dump() for item in items]
@@ -588,6 +614,11 @@ print("GTA Database Validation Complete.")
 def home():
     return {"message": "Welcome to the GTA Online Activity API!"}
 
+# --- GOALS ROUTE ---
+@router.get("/goals")
+def get_all_goals():
+    return gta_database["goals"]
+
 # --- BUSINESS ROUTES ---
 @router.get("/businesses")
 def get_all_businesses():
@@ -602,7 +633,6 @@ def search_businesses(q: Optional[str] = ""):
     
     for tier, items in gta_database["businesses"].items():
         for b in items:
-            # Aggregate all searchable text fields into one string
             searchable_text = (
                 f"{b['name']} "
                 f"{b['property']} "

@@ -8,6 +8,12 @@ router = APIRouter()
 # ==========================================
 # PYDANTIC DATA MODEL (The Blueprint)
 # ==========================================
+class StardewGoal(BaseModel):
+    name: str = Field(min_length=1)
+    cost: int = Field(ge=0)
+    keywords: str = Field(min_length=1)
+    image_url: str = Field(min_length=1)
+
 # Since Crops, Artisan Goods, and Animal Products share the same structure,
 # we only need one master blueprint for Stardew Valley.
 class StardewItem(BaseModel):
@@ -30,6 +36,14 @@ class StardewItem(BaseModel):
 
 # --- THE MASSIVE 16-ATTRIBUTE STARDEW DATABASE ---
 stardew_database = {
+    "goals": [
+        { "name": "Gold Clock", "cost": 10000000, "keywords": "gold clock farm time perfection", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/goldclock.jpg?raw=true" },
+        { "name": "Return Scepter", "cost": 2000000, "keywords": "return scepter krobus teleport", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/returnscepter.jpg?raw=true" },
+        { "name": "Earth Obelisk", "cost": 500000, "keywords": "earth obelisk mountains teleport", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/obelisk.jpg?raw=true" },
+        { "name": "Water Obelisk", "cost": 500000, "keywords": "water obelisk beach teleport", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/obelisk.jpg?raw=true" },
+        { "name": "Deluxe Barn", "cost": 43000, "keywords": "deluxe barn cows pigs sheep ostrich", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/deluxebarn.jpg?raw=true" },
+        { "name": "Cellar Upgrade", "cost": 100000, "keywords": "cellar house upgrade casks aging", "image_url": "https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/cellar.jpg?raw=true" }
+    ],
     "crops": {
         "Joja-Level Profits": [
             {
@@ -439,6 +453,10 @@ stardew_database = {
 # ==========================================
 print("Validating Stardew Database...")
 
+# Validate Goals
+validated_goals = [StardewGoal(**item).model_dump() for item in stardew_database["goals"]]
+stardew_database["goals"] = validated_goals
+
 for tier, items in stardew_database["crops"].items():
     validated_items = [StardewItem(**item).model_dump() for item in items]
     stardew_database["crops"][tier] = validated_items
@@ -458,6 +476,11 @@ print("Stardew Database Validation Complete.")
 @router.get("/")
 def home():
     return {"message": "Welcome to the Stardew Valley Farming API!"}
+
+# --- GOALS ROUTE ---
+@router.get("/goals")
+def get_all_goals():
+    return stardew_database["goals"]
 
 # --- CROPS ROUTES ---
 @router.get("/crops")
