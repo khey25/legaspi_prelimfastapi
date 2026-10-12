@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="neon-bg">
-        <div class="pulsating-circle-gold"></div>
+        <div class="pulsating-circle-green"></div>
     </div>
     
     <header>
@@ -17,32 +17,49 @@
     </header>
 
     <main class="quiz-container" id="calculator-box">
-        <h2>Empire Builder Calculator</h2>
-        <p style="margin-bottom: 30px;">Input your financial goal and current balance to generate a custom grind plan.</p>
-        
-        <div class="options-container form-layout">
-            <input type="text" id="goal-name" class="empire-input" placeholder="Target Item (e.g. Kosatka Submarine)">
-            <input type="number" id="goal-cost" class="empire-input" placeholder="Total Cost ($)">
-            <input type="number" id="current-bank" class="empire-input" placeholder="Current Bank Balance ($)">
-            
-            <select id="game-selector" class="empire-input">
-                <option value="gta">GTA Online</option>
-                <option value="stardew">Stardew Valley</option>
-            </select>
-
-            <button class="quiz-btn" id="calculate-btn" style="margin-top: 15px;">Generate Grind Plan</button>
+        <h2 id="step-title">FROM THE BOTTOM TO THE TOP</h2>      
+        <!-- MATCHMAKER EXACT: The hardcoded start button inside the options box -->
+        <div class="options-container" id="dynamic-options">
+            <button class="quiz-btn" id="start-btn">Build Your Empire</button>
         </div>
+
+        <!-- MATCHMAKER EXACT: Infinite Auto-Scrolling Carousel -->
+        <div class="carousel-container" id="empire-carousel">
+            <div class="carousel-track">
+                <!-- Original Image Set -->
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/goldclock.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/nightclub.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/obelisk.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/casino.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/starfruitwine.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/doomsday.jpg?raw=true" class="carousel-img">
+                
+                <!-- Duplicated Set for Seamless Infinite Looping -->
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/cayo.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/goldclock.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/nightclub.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/obelisk.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/casino.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/stardew/stardewimages/starfruitwine.jpg?raw=true" class="carousel-img">
+                <img src="https://github.com/khey25/legaspi_prelimfastapi/blob/main/gta/gtaimages/doomsday.jpg?raw=true" class="carousel-img">
+            </div>
+        </div>
+
+        <button id="back-btn" class="quiz-btn hidden" style="margin-top: 30px; border-color: #555; color: #aaa; font-size: 1rem; padding: 10px 20px;">
+            &#8592; Go Back
+        </button>
     </main>
 
     <main class="results-container hidden" id="results-box">
         <h2 id="results-header">Your Custom Grind Plan</h2>
-        <h3 id="shortfall-display" style="color: #f1b50d; margin-bottom: 30px;"></h3>
+        <h3 id="shortfall-display" style="color: #4CAF50; margin-bottom: 30px;"></h3>
         <div class="match-grid" id="recommendation-grid">
-            <!-- JavaScript injects strategy cards here -->
         </div>
         <button class="quiz-btn restart-btn" id="restart-btn">Calculate Another Goal</button>
     </main>
 
+    <!-- Details Modal -->
     <div id="details-overlay" class="hidden">
         <div class="details-modal-content">
             <button id="close-details-btn" class="close-btn">X</button>
