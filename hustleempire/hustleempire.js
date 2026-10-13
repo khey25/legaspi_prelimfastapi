@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000/api/v1"; 
+const API_URL = "https://the-hustle-hub.vercel.app/api/v1"; 
 const API_KEY = "hustle-hub-secret-key";
 const FETCH_OPTIONS = { headers: { "x-api-key": API_KEY } };
 
